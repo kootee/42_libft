@@ -1,21 +1,25 @@
 NAME = libft
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-DEPS = libft.h
+
 SRCS = $(wildcard *.c)
 
-all: ${NAME}
+OBJS = ${SRCS:.c=.o}
 
-${NAME}: ${SRCS}
+CFLAGS = -Wall -Wextra -Werror
 
-%.o: %.c ${SRCS}
-	${CC} -c -o $@ $< ${CFLAGS}
+all:	${NAME}
+
+${NAME}: ${OBJS}
+	${CC} ${CFLAGS} -o ${NAME} ${SRCS}
 
 clean:
-	rm -f all
+	@echo "cleaning"
+	rm -f ${OBJS}
 
-.PHONY clean
-re: clean
+.PHONY: clean
+
+fclean: clean
 	rm -f ${NAME}
 
-
+re: fclean all

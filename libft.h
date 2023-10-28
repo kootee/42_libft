@@ -6,21 +6,24 @@
 /*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:45:08 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/27 10:12:37 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:43:59 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	LIBFT_H
 # define LIBFT_H
+# include <stdio.h>
+# include <string.h>
 
-# include "ft_isalpha.c"
-# include "ft_isdigit.c"
-# include "ft_isalnum.c"
-# include "ft_isascii.c"
-# include "ft_isprint.c"
-# include "ft_strlen.c"
-# include "ft_memset.c"
-# include "ft_bzero.c"
+int	ft_isprint(char *str);
+int	ft_isalpha(char *str);
+int	ft_isdigit(char *str);
+int	ft_isalnum(char *str);
+int	ft_isascii(char *str);
+int	ft_strlen(char *str);
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 /* #include "ft_memcpy.c"
 # include "ft_memmove.c"
 # include "ft_strlcpy.c"

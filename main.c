@@ -6,19 +6,15 @@
 /*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:09:42 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/27 10:12:37 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:35:29 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Tests for r1 libft */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-void	test_memset(void);
-
-void	test_memset(void)
+void	test_memcpy(void)
 {
 	char a[6] = "Hello";
 	char b[6] = "Hello";

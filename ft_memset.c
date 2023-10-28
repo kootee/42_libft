@@ -6,9 +6,11 @@
 /*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:48:46 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/27 10:12:37 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:36:57 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
