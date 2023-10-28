@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 12:37:13 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/28 13:45:46 by ktoivola         ###   ########.fr       */
+/*   Created: 2023/10/28 14:40:00 by ktoivola          #+#    #+#             */
+/*   Updated: 2023/10/28 15:07:30 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-/* Check for overlap!!! */
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char *dst_ptr;
-	unsigned char *src_ptr;
+	unsigned int size;
 
-	dst_ptr = (unsigned char *)dst;
-	src_ptr = (unsigned char *)src;
-
-	while (n--)
-		*dst_ptr++ = *src_ptr++;
-	
-	return(dst);
+	size = dstsize;
+	if (size > 0)
+	{
+		while (--size)
+			*dst++ = *src++;
+		*dst = 0;
+	}
+	return (dstsize);
 }

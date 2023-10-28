@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:45:08 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/28 12:43:59 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:59:52 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int	ft_isascii(char *str);
 int	ft_strlen(char *str);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-/* #include "ft_memcpy.c"
-# include "ft_memmove.c"
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+/*
 # include "ft_strlcpy.c"
 # include "ft_strlcat.c"
 # include "ft_toupper.c"
