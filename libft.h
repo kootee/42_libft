@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:45:08 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/28 14:59:52 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:51:44 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,15 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+int	ft_toupper(int c);
+int	ft_tolower(int c);
+char *ft_strchr(const char *s, int c);
+char *ft_strrchr(const char *s, int c);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 /*
-# include "ft_strlcpy.c"
-# include "ft_strlcat.c"
-# include "ft_toupper.c"
-# include "ft_tolower.c"
-# include "ft_strchr.c"
-# include "ft_strrchr.c"
-# include "ft_strncmp.c"
-# include "ft_memchr.c"
-# include "ft_memcmp.c"
 # include "ft_strnstr.c"
 # include "ft_atoi.c"
 # include "ft_calloc.c"

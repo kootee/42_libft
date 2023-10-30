@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 12:27:27 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/30 13:46:51 by ktoivola         ###   ########.fr       */
+/*   Created: 2023/10/30 13:38:31 by ktoivola          #+#    #+#             */
+/*   Updated: 2023/10/30 13:38:34 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char *d;
-
-	d = s;
-	while (n--)
-		*d++ = 0;
+	while ((*s1 || *s2) && n)
+	{
+		if (*s1++ == *s2++)
+			n--;
+		else
+			return(*s1 - *s2);
+	}
+	return(0);
 }

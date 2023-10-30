@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 12:27:27 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/30 13:46:51 by ktoivola         ###   ########.fr       */
+/*   Created: 2023/10/28 16:24:42 by ktoivola          #+#    #+#             */
+/*   Updated: 2023/10/28 16:29:51 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_tolower(int c)
 {
-	unsigned char *d;
-
-	d = s;
-	while (n--)
-		*d++ = 0;
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return(c);
 }
