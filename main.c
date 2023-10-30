@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 10:09:42 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/30 15:02:56 by ktoivola         ###   ########.fr       */
+/*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
+/*   Updated: 2023/10/30 18:04:35 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,16 +161,27 @@ void	test_strnstr(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing strnstr\n");
-	printf("1 Comparison results %s \n", ft_strnstr("Pineapple ", "apple", 20));
-	printf("2 Comparison results %s \n", ft_strnstr("AbraKadabra", "Kadabra", 20));
-	printf("3 Comparison results %s \n", ft_strnstr("A vry long sentence to look in ", "vry", 20));
-	printf("4 Comparison results %s \n", ft_strnstr("onetwothrefourfivesixseveneight", "six", 20));
-	printf("5 Comparison results %s \n", ft_strnstr("Pineapple ", "apple", 4));
-	printf("6 Comparison results %s \n", ft_strnstr("AbraKadabra", "Kadabra", 4));
-	printf("7 Comparison results %s \n", ft_strnstr("      ", "    ", 7));
-	printf("8 Comparison results %s \n", ft_strnstr("", "", 2));
-	printf("9 Comparison results %s \n", ft_strnstr("whatever", "", 0));
-	printf("10 Comparison results %s \n", ft_strnstr("pineapple", "orange", 10));
+	printf("1 Comparison results %s\n", ft_strnstr("Pineapple ", "apple", 20));
+	printf("2 Comparison results %s\n", ft_strnstr("AbraKadabra", "Kadabra", 20));
+	printf("3 Comparison results %s\n", ft_strnstr("A vry long sentence to look in ", "vry", 20));
+	printf("4 Comparison results %s\n", ft_strnstr("onetwothrefourfivesixseveneight", "six", 20));
+	printf("5 Comparison results %s\n", ft_strnstr("Pineapple ", "apple", 4));
+	printf("6 Comparison results %s\n", ft_strnstr("AbraKadabra", "Kadabra", 4));
+	printf("7 Comparison results %s\n", ft_strnstr("_   _   _", "", 7));
+	printf("8 Comparison results %s\n", ft_strnstr("", "", 2));
+	printf("9 Comparison results %s\n", ft_strnstr("^*^", "", 0));
+	printf("10 Comparison results %s\n", ft_strnstr("pineapple", "orange", 10));
+}
+
+void	test_atoi(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing atoi\n");
+	printf("Should print: 123456: %d \n", ft_atoi(" --+++++--+123456ab567"));
+	printf("Should print 1267: %d \n", ft_atoi(" --+1267"));
+	printf("Should print -567: %d \n", ft_atoi(" ---++567"));
+	printf("Should print -154862445: %d \n", ft_atoi(" --+++++-154862445e56444"));
+	printf("Should print 123456546: %d \n", ft_atoi("      123456546ab8567"));
 }
 
 int	main(void)
@@ -187,5 +198,6 @@ int	main(void)
 	test_strncmp();
 	test_memcmp();
 	test_strnstr();
+	test_atoi();
 	return(0);
 }
