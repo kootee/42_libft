@@ -6,13 +6,33 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/31 11:47:06 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:21:39 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Tests for libft */
 
 #include "libft.h"
+
+void	test_isalpha(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing isalpha\n");
+	printf("Isalpha returns %d\n", ft_isalpha("ebcdefARGFv"));
+	printf("Isalpha returns %d\n", ft_isalpha("ebcd ARGFv"));
+	printf("Isalpha returns %d\n", ft_isalpha("ebcde232Fv"));
+	printf("Isalpha returns %d\n", ft_isalpha(""));
+}
+
+void	test_isdigit(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing isdigit\n");
+	printf("Isalpha returns %d\n", ft_isdigit("1234567890"));
+	printf("Isalpha returns %d\n", ft_isdigit("12 3"));
+	printf("Isalpha returns %d\n", ft_isdigit("ebcde232Fv"));
+	printf("Isalpha returns %d\n", ft_isdigit(""));
+}
 
 void	test_memcpy(void)
 {
@@ -216,8 +236,18 @@ void	test_calloc(void)
 	printf("%02X\n", *(p + 3));
 }
 
+void test_strdup(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing strdup\n");
+	
+	char msg[] = "Helloooooooooooo";
+	printf("strdup returns %s\n", ft_strdup(msg));
+}
+
 int	main(void)
 {
+	test_isalpha();
 	test_bzero();
 	test_memcpy();
 	test_memset();
@@ -233,5 +263,6 @@ int	main(void)
 	test_strnstr();
 	test_atoi();
 	test_calloc();
+	test_strdup();
 	return(0);
 }

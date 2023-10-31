@@ -14,12 +14,13 @@ ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -o ${NAME} ${SRCS}
 
 clean:
-	@echo "cleaning"
-	rm -f ${OBJS}
+	@echo "cleaning..."
+	@rm -f ${OBJS}
 
 .PHONY: clean
 
 fclean: clean
-	rm -f ${NAME}
+	@echo "cleaning all files..."
+	@rm -f ${NAME}
 
 re: fclean all
