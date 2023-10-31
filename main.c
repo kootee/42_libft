@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/31 16:21:39 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:53:27 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ void	test_isdigit(void)
 	printf("Isalpha returns %d\n", ft_isdigit("12 3"));
 	printf("Isalpha returns %d\n", ft_isdigit("ebcde232Fv"));
 	printf("Isalpha returns %d\n", ft_isdigit(""));
+}
+
+void	test_isalnum(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing isalnum\n");
+	printf("isalnum returns %d\n", ft_isalnum("1234567890"));
+	printf("isalnum returns %d\n", ft_isalnum("abcde"));
+	printf("isalnum returns %d\n", ft_isalnum("ebcde232Fv"));
+	printf("isalnum returns %d\n", ft_isalnum(""));
+	printf("isalnum returns %d\n", ft_isalnum("@$&^()#(@⁄€‹)"));
 }
 
 void	test_memcpy(void)
@@ -245,10 +256,22 @@ void test_strdup(void)
 	printf("strdup returns %s\n", ft_strdup(msg));
 }
 
+void	test_memchr(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing memchr\n");
+	
+	char msg[] = "Helloooooooooooo";
+	printf("memchr returns %s\n", ft_memchr(msg, 111, 7));
+	printf("memchr returns %s\n", ft_memchr(msg, 111, 2));
+}
+
 int	main(void)
 {
 	test_isalpha();
-	test_bzero();
+	test_isdigit();
+	test_isalnum();
+/* 	test_bzero();
 	test_memcpy();
 	test_memset();
 	test_memmove();
@@ -263,6 +286,7 @@ int	main(void)
 	test_strnstr();
 	test_atoi();
 	test_calloc();
-	test_strdup();
+	test_strdup(); */
+	test_memchr();
 	return(0);
 }

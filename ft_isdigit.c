@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:15:20 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/25 15:45:44 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:50:46 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if(!(*str))
+		return(0);
+	while (*str)
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (*str < '0' || *str > '9')
 			return	(0);
-		i++;
+		str++;
 	}
 	return (1);
 }
