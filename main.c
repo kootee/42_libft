@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/30 18:04:35 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/10/31 11:47:06 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,8 +184,41 @@ void	test_atoi(void)
 	printf("Should print 123456546: %d \n", ft_atoi("      123456546ab8567"));
 }
 
+void	test_bzero()
+{
+	char msg[] = "Hello";
+	char *p = msg;
+
+	printf("%02X ", *(unsigned char *)p);
+	printf("%02X ", *((unsigned char *)p + 1));
+	printf("%02X ", *((unsigned char *)p + 2));
+	printf("%02X ", *((unsigned char *)p + 3));
+	printf("%02X\n", *((unsigned char *)p + 4));
+	ft_bzero(msg + 2, 2);
+	printf("%02X ", *(unsigned char *)p);
+	printf("%02X ", *((unsigned char *)p + 1));
+	printf("%02X ", *((unsigned char *)p + 2));
+	printf("%02X ", *((unsigned char *)p + 3));
+	printf("%02X\n", *((unsigned char *)p + 4));
+}
+
+void	test_calloc(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing calloc\n");
+
+	unsigned char *p;
+
+	p = ft_calloc(4, 1);
+	printf("Calloc p is %02X ", *p);
+	printf("%02X ", *(p + 1));
+	printf("%02X ", *(p + 2));
+	printf("%02X\n", *(p + 3));
+}
+
 int	main(void)
 {
+	test_bzero();
 	test_memcpy();
 	test_memset();
 	test_memmove();
@@ -199,5 +232,6 @@ int	main(void)
 	test_memcmp();
 	test_strnstr();
 	test_atoi();
+	test_calloc();
 	return(0);
 }
