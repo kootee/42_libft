@@ -6,18 +6,18 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:15:20 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/31 16:50:46 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 10:01:55 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(char *str)
 {
-	if(!(*str))
-		return(0);
+	if (!*str)
+		return (0);
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')
-			return	(0);
+			return (0);
 		str++;
 	}
 	return (1);

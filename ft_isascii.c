@@ -3,23 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:38:17 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/25 15:45:10 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 10:20:19 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char *str)
+int	ft_isascii(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < 0 || str[i] > 127)
-			return	(0);
-		i++;
-	}
+	if (c < 0 || c > 127)
+		return (0);
 	return (1);
 }

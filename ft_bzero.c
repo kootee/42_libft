@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:27:27 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/31 11:12:05 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 10:51:15 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *d;
-
-	d = s;
 	while (n--)
-		*d++ = 0;
+		*(unsigned char *)s++ = 0;
 }

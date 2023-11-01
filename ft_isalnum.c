@@ -6,14 +6,17 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:24:03 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/31 17:54:50 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 10:13:18 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(char	*str)
+int	ft_isalnum(int c)
 {
-	if((*str < '0' || *str > '9') && 
-	((*str < 'A' || *str > 'z') || (*str > 'Z' && *str < 'a')))
-		return(0);
-	return(1);
+	unsigned char	x;
+
+	x = (unsigned char)c;
+	if ((x < '0' || x > '9') && 
+		((x < 'A' || x > 'z') || (x > 'Z' && x < 'a')))
+		return (0);
+	return (1);
 }

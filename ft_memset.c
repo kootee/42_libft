@@ -3,21 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktoivola <ktoivola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:48:46 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/28 12:36:57 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 10:48:25 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char *d;
-	
-	d = b;
 	while (len--)
-		*d++ = c;
+		*(unsigned char *)b++ = c;
 	return (b);
 }
