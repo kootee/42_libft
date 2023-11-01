@@ -1,4 +1,4 @@
-NAME = libft
+NAME = libft.a
 
 CC = cc
 
@@ -11,7 +11,8 @@ CFLAGS = -Wall -Wextra -Werror
 all:	${NAME}
 
 ${NAME}: ${OBJS}
-	${CC} ${CFLAGS} -o ${NAME} ${SRCS}
+	${CC} ${CFLAGS} -c ${SRCS}
+	ar -rc ${NAME} ${OBJS}
 
 clean:
 	@echo "cleaning..."
