@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 11:07:34 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:45:04 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,29 +89,26 @@ void	test_strlcpy(void)
 	printf("Testing strlcpy\n");
 	char a[6] = "iiiii";
 	char b[6] = "uuuuu";
-	char c[6] = "tttttt";
-	char d[6] = "vvvvvv";
-	int size;
-	size = ft_strlcpy(a, b, 3);
-	strlcpy(c, d, 3);
-	printf("result from strlcpy is %s %d\n", a, size);
-	printf("lib function gives %s\n", c);
+	char c[6] = "iiiii";
+	char d[6] = "uuuuu";
+	int size = ft_strlcpy(a, b, 3);
+	int size1 = strlcpy(c, d, 3);
+	printf("strlcpy copied string is %s and return value %d\n", a, size);
+	printf("lib function copied str is %s and return value %d\n", c, size1);
 }
 
 void	test_strlcat(void)
 {
 	printf("-------------------------\n\n");
-	printf("Testing strcat\n");
-	char a[7] = "bana";
-	char b[3] = "na";
-	char c[7] = "bana";
-	char d[3] = "na";
-	int size;
-	int lib_size;
-	size = ft_strlcat(a, b, 7);
-	lib_size = strlcat(c, d, 7);
+	printf("Testing strlcat\n");
+	char a[] = "12345678";
+	char b[] = "hello";
+	char c[] = "12345678"; //9
+	char d[] = "hello";
+	int size = ft_strlcat(a, b, 9);
+	int size1 = strlcat(c, d, 9);
 	printf("result from strlcat is %s %d\n", a, size);
-	printf("lib function gives %s %d\n", c, lib_size);
+	printf("lib function gives %s %s %d\n", c, d, size1);
 }
 
 void	test_toupper(void)
@@ -277,12 +274,12 @@ int	main(void)
 	test_memcpy();
 	test_memset();
 	test_memmove();
-/* 	test_strlcpy();
-	test_strlcat();
+/*  	test_strlcpy();
+	test_strlcat(); */
 	test_toupper();
 	test_tolower();
 	test_strchr();
-	test_strrchr();
+	/*test_strrchr();
 	test_strncmp();
 	test_memcmp();
 	test_strnstr();

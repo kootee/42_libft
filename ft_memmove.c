@@ -6,25 +6,18 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:54:20 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/30 16:43:59 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 12:07:11 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void *ft_memcpy(void *dst, const void *src, size_t n);
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *dst_ptr;
-	unsigned char *src_ptr;
+	char	*src_ptr;
 
-	dst_ptr = (unsigned char *)dst;
-	src_ptr = (unsigned char *)src;
-
-	ft_memcpy(src_ptr, src, len);
-	while(len--)
-		*dst_ptr++ = *src_ptr++;
-
-	return(dst);
+	src_ptr = ft_strdup(src);
+	while (len--)
+		*(unsigned char *)dst++ = *src_ptr++;
+	return (dst);
 }
