@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 14:45:04 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:56:54 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,25 +267,25 @@ void	test_memchr(void)
 
 int	main(void)
 {
-/* 	test_isalpha();
+	test_isalpha();
 	test_isdigit();
 	test_isalnum();
-	test_bzero();*/
+	test_bzero();
 	test_memcpy();
 	test_memset();
 	test_memmove();
-/*  	test_strlcpy();
-	test_strlcat(); */
-	test_toupper();
+	test_strlcpy();
+/* 	test_strlcat();
+	test_toupper(); */
 	test_tolower();
 	test_strchr();
-	/*test_strrchr();
+	test_strrchr();
 	test_strncmp();
 	test_memcmp();
 	test_strnstr();
 	test_atoi();
 	test_calloc();
 	test_strdup();
-	test_memchr(); */
+	test_memchr();
 	return(0);
 }

@@ -6,18 +6,18 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:33:23 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/10/30 13:46:59 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:51:00 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	while (*s++)
 	{
-		if(*s == (char)c)
-			return((char *)s);
+		if (*s == (char)c)
+			return ((char *)s);
 	}
-	return(0);
+	return (0);
 }
