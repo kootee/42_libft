@@ -25,7 +25,8 @@ SRCS = ft_memset.c \
 		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
-		ft_substr.c
+		ft_substr.c \
+		ft_strjoin.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -36,7 +37,6 @@ all:	${NAME}
 ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -c ${SRCS}
 	ar -rc ${NAME} ${OBJS}
-	@nm ${NAME}
 	cc main.c -L. -lft -o main
 
 clean:
