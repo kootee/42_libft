@@ -6,21 +6,13 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:41:53 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 10:00:08 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/02 13:57:55 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	if (!*str)
+	if ((c < 'A' || c > 'z') || (c > 'Z' && c < 'a'))
 		return (0);
-	while (*str)
-	{
-		if ((*str < 'A' || *str > 'z') || (*str > 'Z' && *str < 'a'))
-			return (0);
-		str++;
-	}
 	return (1);
 }

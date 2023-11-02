@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 14:56:54 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/02 14:19:04 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@ void	test_isalpha(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing isalpha\n");
-	printf("Isalpha returns %d\n", ft_isalpha("ebcdefARGFv"));
-	printf("Isalpha returns %d\n", ft_isalpha("ebcdefghssgkopqARGFv"));
-	printf("Isalpha returns %d\n", ft_isalpha("ebcd ARGFv"));
-	printf("Isalpha returns %d\n", ft_isalpha("ebcde232Fv"));
-	printf("Isalpha returns %d\n", ft_isalpha(""));
+	printf("Isalpha returns %d\n", ft_isalpha(67));
+	printf("Isalpha returns %d\n", ft_isalpha(65));
+	printf("Isalpha returns %d\n", ft_isalpha(122));
+	printf("Isalpha returns %d\n", ft_isalpha(116));
+	printf("Isalpha returns %d\n", ft_isalpha(92));
 }
 
 void	test_isdigit(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing isdigit\n");
-	printf("isdigit returns %d\n", ft_isdigit("1234567890"));
-	printf("isdigit returns %d\n", ft_isdigit("1"));
-	printf("isdigit returns %d\n", ft_isdigit("12 3"));
-	printf("isdigit returns %d\n", ft_isdigit("ebcde232Fv"));
-	printf("isdigit returns %d\n", ft_isdigit(""));
+	printf("isdigit returns %d | 5\n", ft_isdigit('5'));
+	printf("isdigit returns %d | r\n", ft_isdigit('r'));
+	printf("isdigit returns %d | h\n", ft_isdigit('h'));
+	printf("isdigit returns %d | 8\n", ft_isdigit('8'));
+	printf("isdigit returns %d | 0\n", ft_isdigit('0'));
+	printf("isdigit returns %d | 9\n", ft_isdigit('9'));
 }
 
 void	test_isalnum(void)
@@ -265,6 +266,16 @@ void	test_memchr(void)
 	printf("memchr returns %s\n", ft_memchr(msg, 111, 2));
 }
 
+void	test_substr(void)
+{
+	printf("-------------------------\n\n");
+	printf("Testing substr\n");
+	
+	char s1[] = "pineapple";
+	printf("substr returns %s\n", ft_substr(s1, 2, 2));
+	printf("substr returns %s\n", ft_substr(s1, 0, 9));
+}
+
 int	main(void)
 {
 	test_isalpha();
@@ -275,8 +286,8 @@ int	main(void)
 	test_memset();
 	test_memmove();
 	test_strlcpy();
-/* 	test_strlcat();
-	test_toupper(); */
+	//test_strlcat();
+	test_toupper();
 	test_tolower();
 	test_strchr();
 	test_strrchr();
@@ -287,5 +298,6 @@ int	main(void)
 	test_calloc();
 	test_strdup();
 	test_memchr();
+	test_substr();
 	return(0);
 }
