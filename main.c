@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/03 17:50:28 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:48:42 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,18 +270,18 @@ void	test_memchr(void)
 
 void	test_substr(void)
 {
-	printf("-------------------------\n\n");
+	printf("-------------------------\n");
 	printf("Testing substr\n");
-	
+	printf("-------------------------\n");
 	char s1[] = "pineapple";
-	printf("Next test--------- 2 2\n");
-	printf("substr returns %s\n", ft_substr(s1, 2, 2));
-	printf("Next test--------- 0 5\n");
-	printf("substr returns %s\n", ft_substr(s1, 0, 5));
-	printf("Next test--------- 100 5\n");
-	printf("substr returns %s\n", ft_substr(s1, 100, 5));
-	printf("Next test--------- 700 2\n");
-	printf("substr returns %s\n", ft_substr(s1, 2, 700));
+	printf("---------Next test---------\n 2 2\n");
+	printf("substr returns _%s_\n", ft_substr(s1, 2, 2));
+	printf("---------Next test---------\n 3 5\n");
+	printf("substr returns _%s_\n", ft_substr(s1, 3, 5));
+	printf("---------Next test---------\n 100 5\n");
+	printf("substr returns _%s_\n", ft_substr(s1, 100, 5));
+	printf("---------Next test---------\n 700 2\n");
+	printf("substr returns _%s_\n", ft_substr(s1, 2, 700));
 }
 
 void	test_strjoin()
@@ -306,11 +306,19 @@ void	test_strtrim()
 	char s2[] = "123";
 	char sa[] = "hur";
 	char sb[] = "r";
-	printf("1 strjoin returns %s\n", ft_strtrim(s1, s2));
-	printf("Next test---------\n");
-	printf("2 strjoin returns %s\n", ft_strtrim(sa, sb));
-	printf("Next test---------\n");
-	printf("2 strjoin returns %s\n", ft_strtrim("Hello", "H"));
+	printf("---------test---------\n");
+	printf("1 strtrim returns _%s_\n", ft_strtrim(s1, s2));
+	printf("---------test---------\n");
+	printf("2 strtrim returns _%s_\n", ft_strtrim(sa, sb));
+	printf("---------test---------\n");
+	printf("3 strtrim returns _%s_\n", ft_strtrim("Hello", "H"));
+	printf("---------test---------\n");
+	printf("4 strtrim returns _%s_\n", ft_strtrim("superlongwithoutanythingtoremove", "!"));
+	printf("---------test---------\n");
+	printf("5 strtrim returns _%s_\n", ft_strtrim("", ""));
+	printf("---------test---------\n");
+	printf("6 strtrim returns _%s_\n", ft_strtrim("Hello", ""));
+	
 }
 
 int	main(void)
