@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:24:03 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 10:13:18 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:57:03 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@ int	ft_isalnum(int c)
 	unsigned char	x;
 
 	x = (unsigned char)c;
-	if ((x < '0' || x > '9') && 
-		((x < 'A' || x > 'z') || (x > 'Z' && x < 'a')))
+	if ((x < '0' || x > '9') && ((x < 'A' || x > 'z')
+			|| (x > 'Z' && x < 'a')))
 		return (0);
 	return (1);
 }

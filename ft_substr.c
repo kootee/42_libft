@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:01:16 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/03 14:00:08 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:48:12 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,25 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
-	substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (!substr)
-		return (0);
-	while (i < len && s[start + i])
+	if ((ft_strlen(s) - start < 0) || ft_strlen(s) > len)
 	{
+		printf("allocating memory\n");
+		substr = malloc(sizeof(char) * (len + 1));
+		if (!substr)
+			return (0);
+	}
+	else 
+	{
+		printf("returning empty string\n");
+		return (strdup(""));
+	}
+	while ((i < len && s[start + i]))
+	{
+		printf("%d ", i);
 		substr[i] = s[start + i];
 		i++;
 	}
 	substr[i] = 0;
+	printf("\n returning %s", substr);
 	return (substr);
 }

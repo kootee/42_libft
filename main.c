@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/03 15:35:09 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:50:28 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,8 +274,14 @@ void	test_substr(void)
 	printf("Testing substr\n");
 	
 	char s1[] = "pineapple";
+	printf("Next test--------- 2 2\n");
 	printf("substr returns %s\n", ft_substr(s1, 2, 2));
+	printf("Next test--------- 0 5\n");
 	printf("substr returns %s\n", ft_substr(s1, 0, 5));
+	printf("Next test--------- 100 5\n");
+	printf("substr returns %s\n", ft_substr(s1, 100, 5));
+	printf("Next test--------- 700 2\n");
+	printf("substr returns %s\n", ft_substr(s1, 2, 700));
 }
 
 void	test_strjoin()
@@ -328,8 +334,8 @@ int	main(void)
 	test_atoi();
 	test_calloc();
 	test_strdup();
-	test_memchr();
-	test_substr();*/
+	test_memchr();*/
+	test_substr();
 	test_strjoin();
 	test_strtrim();
 	return(0);
