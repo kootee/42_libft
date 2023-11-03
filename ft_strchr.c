@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:33:23 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 14:51:00 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/03 14:41:46 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s++)
+	while (*s || c == 0)
 	{
 		if (*s == (char)c)
 			return ((char *)s);
+		s++;
 	}
 	return (0);
 }

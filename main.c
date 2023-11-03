@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/02 14:45:18 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:35:09 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,13 +142,15 @@ void	test_strchr(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing strchr\n");
-	char a[6] = "abcde";
-	int	b = 'c';
-	printf("result is %s\n", ft_strchr(a, b));
+	char a[] = "pineapple!";
+	printf("1 result is %s\n", ft_strchr(a, 'a'));
+	printf("2 result is %s\n", ft_strchr(a, 'n'));
+	printf("3 result is %s\n", ft_strchr(a, '!'));
 	char c[6] = "abcde";
-	int	d = 'D';
-	printf("result is %s\n", ft_strchr(c, d));
-	printf("lib result is %s\n", strchr(c, d));
+	printf("4 result is (not in string, should return null) %s\n", ft_strchr(c, 'D'));
+	printf("lib result is (not in string, should return null) %s\n", strchr(c, 'D'));
+	printf("5 result for null is %s\n", ft_strchr(c, 0));
+	printf("lib result is %s\n", strchr(c, 0));
 }
 
 void	test_strrchr(void)
@@ -289,9 +291,25 @@ void	test_strjoin()
 	printf("strjoin returns %s\n", ft_strjoin(sa, sb));
 }
 
+void	test_strtrim()
+{
+	printf("-------------------------\n\n");
+	printf("Testing strtrim\n");
+	
+	char s1[] = "123ABC---DE123";
+	char s2[] = "123";
+	char sa[] = "hur";
+	char sb[] = "r";
+	printf("1 strjoin returns %s\n", ft_strtrim(s1, s2));
+	printf("Next test---------\n");
+	printf("2 strjoin returns %s\n", ft_strtrim(sa, sb));
+	printf("Next test---------\n");
+	printf("2 strjoin returns %s\n", ft_strtrim("Hello", "H"));
+}
+
 int	main(void)
 {
-	test_isalpha();
+/* 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
 	test_bzero();
@@ -301,17 +319,18 @@ int	main(void)
 	test_strlcpy();
 	//test_strlcat();
 	test_toupper();
-	test_tolower();
+	test_tolower(); */
 	test_strchr();
 	test_strrchr();
-	test_strncmp();
+/* 	test_strncmp();
 	test_memcmp();
 	test_strnstr();
 	test_atoi();
 	test_calloc();
 	test_strdup();
 	test_memchr();
-	test_substr();
+	test_substr();*/
 	test_strjoin();
+	test_strtrim();
 	return(0);
 }
