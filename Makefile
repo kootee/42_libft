@@ -27,7 +27,9 @@ SRCS = ft_memset.c \
 		ft_tolower.c \
 		ft_substr.c \
 		ft_strjoin.c \
-		ft_strtrim.c
+		ft_strtrim.c \
+		ft_split.c	\
+		main.c
 
 OBJS = ${SRCS:.c=.o}
 

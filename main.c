@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/03 18:48:42 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:59:49 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,14 +274,16 @@ void	test_substr(void)
 	printf("Testing substr\n");
 	printf("-------------------------\n");
 	char s1[] = "pineapple";
-	printf("---------Next test---------\n 2 2\n");
+	printf("Next test		\n2 2\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 2, 2));
-	printf("---------Next test---------\n 3 5\n");
+	printf("Next test		\n3 5\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 3, 5));
-	printf("---------Next test---------\n 100 5\n");
+	printf("Next test		\n100 5\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 100, 5));
-	printf("---------Next test---------\n 700 2\n");
+	printf("Next test		\n 2 700\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 2, 700));
+	printf("Next test		\n 400 20\n");
+	printf("substr returns _%s_\n", ft_substr(s1, 400, 20));
 }
 
 void	test_strjoin()
@@ -299,26 +301,43 @@ void	test_strjoin()
 
 void	test_strtrim()
 {
-	printf("-------------------------\n\n");
+	printf("-------------------------\n");
 	printf("Testing strtrim\n");
 	
-	char s1[] = "123ABC---DE123";
+	char s1[] = "213ABC---DE123";
 	char s2[] = "123";
 	char sa[] = "hur";
 	char sb[] = "r";
-	printf("---------test---------\n");
+	char sy[] = "          ";
+	printf("Next test\n");
 	printf("1 strtrim returns _%s_\n", ft_strtrim(s1, s2));
-	printf("---------test---------\n");
+	printf("Next test\n");
 	printf("2 strtrim returns _%s_\n", ft_strtrim(sa, sb));
-	printf("---------test---------\n");
+	printf("Next test\n");
 	printf("3 strtrim returns _%s_\n", ft_strtrim("Hello", "H"));
-	printf("---------test---------\n");
+	printf("Next test\n");
 	printf("4 strtrim returns _%s_\n", ft_strtrim("superlongwithoutanythingtoremove", "!"));
-	printf("---------test---------\n");
+	printf("Next test\n");
 	printf("5 strtrim returns _%s_\n", ft_strtrim("", ""));
-	printf("---------test---------\n");
+	printf("Next test\n");
 	printf("6 strtrim returns _%s_\n", ft_strtrim("Hello", ""));
-	
+	printf("Next test\n");
+	printf("7 strtrim returns _%s_\n", ft_strtrim(sy, " "));
+}
+
+void	test_split()
+{
+	printf("-------------------------\n");
+	printf("Testing split\n");
+	printf("-------------------------\n");
+	int	i = 0;
+	char s1[] = "123ABC---DE123---ferg-hjjjy";
+	char **ptr1 = ft_split(s1, '-');
+	while (i < 4)
+	{
+		printf("no %d string is %s\n", i, ptr1[i]);
+		i++;
+	}
 }
 
 int	main(void)
@@ -334,9 +353,9 @@ int	main(void)
 	//test_strlcat();
 	test_toupper();
 	test_tolower(); */
-	test_strchr();
+	/* test_strchr();
 	test_strrchr();
-/* 	test_strncmp();
+	test_strncmp();
 	test_memcmp();
 	test_strnstr();
 	test_atoi();
@@ -346,5 +365,6 @@ int	main(void)
 	test_substr();
 	test_strjoin();
 	test_strtrim();
+	test_split();
 	return(0);
 }
