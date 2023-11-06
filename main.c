@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/06 15:59:49 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:12:49 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -331,13 +331,14 @@ void	test_split()
 	printf("Testing split\n");
 	printf("-------------------------\n");
 	int	i = 0;
-	char s1[] = "123ABC---DE123---ferg-hjjjy";
+	char s1[] = "ABC---DEF---PINE-APPLE";
 	char **ptr1 = ft_split(s1, '-');
 	while (i < 4)
 	{
 		printf("no %d string is %s\n", i, ptr1[i]);
 		i++;
 	}
+	printf("no 2 string is %s\n", ptr1[2]);
 }
 
 int	main(void)
