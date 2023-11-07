@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:46:59 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/06 15:41:05 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/07 09:38:46 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	j = 0;
-	if (!s1 && !set)
+	if (!s1 || !set)
 		return (0);
 	len = ft_strlen(s1);
-	while (ft_strchr(set, s1[i]) && i < len)
+	while (i < len && ft_strchr(set, s1[i]))
 		i++;
-	if (i > len)
-		return ("");
-	while (len - j - 1 >= 0 && ft_strchr(set, s1[len - j - 1]))
+	while (len - j > 0 && ft_strchr(set, s1[len - j - 1]))
 		j++;
 	str_cpy = ft_substr(s1, i, len - i - j);
 	return (str_cpy);

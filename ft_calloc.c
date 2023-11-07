@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:06:48 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/02 09:57:07 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:52:37 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = malloc(count * size);
 	if (!ptr)
 		return (ptr);
-	ft_bzero(ptr, count * size);
+	ft_bzero(ptr, count);
 	return (ptr);
 }
