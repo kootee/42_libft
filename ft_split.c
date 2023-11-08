@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:37:01 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/08 10:58:55 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/08 14:29:28 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	ft_count_strs(const char *s, char c)
 
 void	ft_free(char **ptr, int num_of_strs)
 {
-	if (!num_of_strs)
+	if (num_of_strs)
 	{
 		while (num_of_strs--)
 			free(ptr[num_of_strs - 1]);
@@ -46,18 +46,18 @@ void	ft_free(char **ptr, int num_of_strs)
 
 void	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
 {
-	int		i;
-	int		j;
-	int		ptr_index;
+	unsigned int	i;
+	unsigned int	j;
+	int				ptr_index;
 
 	i = 0;
 	j = 0;
 	ptr_index = 0;
 	while (ptr_index < num_of_strs)
 	{
-		while (s[i] && s[i] == c)
+		while (i < ft_strlen(s) && s[i] == c)
 			i++;
-		while (s[i + j] && s[i + j] != c)
+		while (i + j < ft_strlen(s) && s[i + j] != c)
 			j++;
 		ptr[ptr_index] = ft_substr(s, i, j);
 		if (!ptr[ptr_index])
@@ -73,6 +73,8 @@ char	**ft_split(char const *s, char c)
 	char	**splt_ptr;
 	int		num_of_strs;
 
+	if (!s)
+		return (0);
 	num_of_strs = ft_count_strs(s, c);
 	splt_ptr = malloc(sizeof(char *) * num_of_strs + 1);
 	if (!splt_ptr)

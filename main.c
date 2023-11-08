@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/08 11:11:28 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/08 12:37:56 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -331,7 +331,7 @@ void	test_split()
 	printf("Testing split\n");
 	printf("-------------------------\n");
 	int	i = 0;
-	char s1[] = "---ABC---DEF---PINE-APPLE---gd-hrh-hh-seg-d2";
+	char s1[] = "---ABC---DEF---PINE-APPLE---gd-hrh-hh-seg-d2r";
 	printf("\nTest 1\n");
 	printf("%s\n", s1);
 	char **ptr1 = ft_split(s1, '-');
@@ -342,7 +342,7 @@ void	test_split()
 	
 	printf("\nTest 2\n");
 	i = 0;
-	char **ptr2 = ft_split("          ", ' ');
+	char **ptr2 = ft_split("       ", ' ');
 	while (ptr2[i])
 	{
 		printf("no %d string is _%s_\n", i, ptr2[i]);
@@ -350,7 +350,7 @@ void	test_split()
 	}
 	printf("\nTest 3\n");
 	i = 0;
-	char **ptr3 = ft_split("lorem ipsum dolor sit amet, cscing elit. Sed non risus. Suspendisse", ' ');
+	char **ptr3 = ft_split("lorem ipsum dolor sit amet", ' ');
 	while (ptr3[i])
 	{
 		printf("no %d string is %s\n", i, ptr3[i]);
