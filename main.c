@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/08 12:37:56 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:29:33 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -358,6 +358,19 @@ void	test_split()
 	}
 }
 
+void	test_itoa()
+{
+	printf("-------------------------\n");
+	printf("Testing itoa\n");
+	printf("-------------------------\n");
+	printf("Testing 0 --> %s\n", ft_itoa(0));
+	printf("Testing 344 --> %s\n", ft_itoa(344));
+	printf("Testing -524 --> %s\n", ft_itoa(-524));
+	printf("Testing -5548245 --> %s\n", ft_itoa(-5548245));
+	printf("Testing 2147483647 --> %s\n", ft_itoa(2147483647));
+	printf("Testing -2147483648 --> %s\n", ft_itoa(-2147483648));
+}
+
 int	main(void)
 {
 /* 	test_isalpha();
@@ -384,5 +397,6 @@ int	main(void)
 	test_strjoin();
 	test_strtrim();
 	test_split();
+	test_itoa();
 	return(0);
 }
