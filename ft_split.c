@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:37:01 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/07 16:22:27 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/08 10:58:55 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char	ft_count_strs(const char *s, char c)
 	i = 0;
 	str_len = ft_strlen(s);
 	str_num = 0;
-	while (s[i++])
+	while (s[i])
 	{
-		while (s[i] == c && i < str_len)
+		while (i < str_len && s[i] == c)
 			i++;
-		while (s[i] != c && i < str_len)
+		while (i < str_len && s[i] != c)
 			i++;
-		if (!s[i] && s[str_len - 1] == c)
+		if (i == str_len && s[str_len - 1] == c)
 			return (str_num);
 		str_num++;
 	}
@@ -36,12 +36,15 @@ char	ft_count_strs(const char *s, char c)
 
 void	ft_free(char **ptr, int num_of_strs)
 {
-	while (num_of_strs--)
-		free(ptr[num_of_strs - 1]);
+	if (!num_of_strs)
+	{
+		while (num_of_strs--)
+			free(ptr[num_of_strs - 1]);
+	}
 	free(ptr);
 }
 
-void	ft_set_ptrs(char const *s, char **ptr, int num_of_strs, char c)
+void	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
 {
 	int		i;
 	int		j;
@@ -63,7 +66,6 @@ void	ft_set_ptrs(char const *s, char **ptr, int num_of_strs, char c)
 		j = 0;
 		ptr_index++;
 	}
-	ptr[ptr_index] = 0;
 }
 
 char	**ft_split(char const *s, char c)
@@ -75,6 +77,7 @@ char	**ft_split(char const *s, char c)
 	splt_ptr = malloc(sizeof(char *) * num_of_strs + 1);
 	if (!splt_ptr)
 		return (0);
-	ft_set_ptrs(s, splt_ptr, num_of_strs, c);
+	ft_set_strs(s, splt_ptr, num_of_strs, c);
+	splt_ptr[num_of_strs] = 0;
 	return (splt_ptr);
 }
