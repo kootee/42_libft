@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:37:01 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/08 14:29:28 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:21:23 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_free(char **ptr, int num_of_strs)
 	if (num_of_strs)
 	{
 		while (num_of_strs--)
-			free(ptr[num_of_strs - 1]);
+			free(ptr[num_of_strs]);
 	}
 	free(ptr);
 }

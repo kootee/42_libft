@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/08 16:29:33 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:11:31 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -371,6 +371,24 @@ void	test_itoa()
 	printf("Testing -2147483648 --> %s\n", ft_itoa(-2147483648));
 }
 
+char	testfunction(unsigned int i, char c)
+{	
+	if (!(i % 2 == 0))
+		c = '!';
+	else 
+		c = 'U';
+	return(c);
+}
+
+void	test_strmapi()
+{
+	printf("-------------------------\n");
+	printf("Testing strmapi\n");
+	printf("-------------------------\n");
+	printf("Testing --> %s\n", ft_strmapi("Hello", testfunction));
+	printf("Testing --> %s\n", ft_strmapi("???????????????", testfunction));
+}
+
 int	main(void)
 {
 /* 	test_isalpha();
@@ -398,5 +416,6 @@ int	main(void)
 	test_strtrim();
 	test_split();
 	test_itoa();
+	test_strmapi();
 	return(0);
 }

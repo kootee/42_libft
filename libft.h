@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:45:08 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/08 16:03:55 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:57:00 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif

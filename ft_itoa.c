@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:36:46 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/08 16:39:18 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:06:48 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,16 @@ char	*ft_itoa(int n)
 
 	num = n;
 	count = check_length(num);
-	if (num < 0)
-	{
-		num = num * -1;
-		ptr = malloc(sizeof(char) * count + 2);
-		ptr[0] = '-';
-	}
-	else
-		ptr = malloc(sizeof(char) * count + 1);
+	ptr = malloc(sizeof(char) * count + 1);
 	if (!ptr)
 		return (0);
 	if (!n)
 		ptr[0] = '0';
+	if (num < 0)
+	{
+		num = num * -1;
+		ptr[0] = '-';
+	}
 	ptr[count] = 0;
 	while (num > 0)
 	{
