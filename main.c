@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/09 11:11:31 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:50:27 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -389,6 +389,36 @@ void	test_strmapi()
 	printf("Testing --> %s\n", ft_strmapi("???????????????", testfunction));
 }
 
+void	testfunction_2(unsigned int i, char *s)
+{	
+	if (!(i % 2 == 0))
+		s[i] = '!';
+	else 
+		s[i] = 'U';
+}
+
+void	test_striteri()
+{
+	char s1[] = "   ";
+	char s2[] = "???????????????";
+	printf("-------------------------\n");
+	printf("Testing striteri\n");
+	printf("-------------------------\n");
+	ft_striteri(s1, testfunction_2);
+	ft_striteri(s2, testfunction_2);
+	printf("Testing --> %s\n", s1);
+	printf("Testing --> %s\n", s2);
+}
+
+void	test_ft_putchar_fd()
+{
+	ft_putchar_fd('H', 1);
+	ft_putchar_fd('E', 1);
+	ft_putchar_fd('I', 1);
+	ft_putchar_fd('!', 1);
+	printf("\n");
+}
+
 int	main(void)
 {
 /* 	test_isalpha();
@@ -417,5 +447,7 @@ int	main(void)
 	test_split();
 	test_itoa();
 	test_strmapi();
+	test_striteri();
+	test_ft_putchar_fd();
 	return(0);
 }

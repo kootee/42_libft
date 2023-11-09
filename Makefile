@@ -31,6 +31,8 @@ SRCS = ft_memset.c \
 		ft_split.c	\
 		ft_itoa.c \
 		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
 		main.c
 
 OBJS = ${SRCS:.c=.o}
