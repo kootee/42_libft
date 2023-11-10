@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/10 16:39:42 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:17:12 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -328,7 +328,7 @@ void	test_strtrim()
 	
 	char s1[] = "213ABC---DE123";
 	char s2[] = "123";
-	char sa[] = "hur";
+	char sa[] = "fjewiofsgjioegj";
 	char sb[] = "r";
 	char sy[] = "          ";
 	printf("Next test\n");
