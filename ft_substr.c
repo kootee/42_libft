@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:01:16 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/07 12:02:06 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:37:56 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	s_len = ft_strlen(s);
-	if (len == 0 || start > s_len)
-		return ("");
+	if (len == 0 || start > s_len || s_len == 0)
+		return(ft_strdup(""));
 	if ((s_len - start) < len)
-		substr = malloc(sizeof(char) * (s_len - start));
+		substr = malloc(sizeof(char) * (s_len - start + 1));
 	else
 		substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
-		return (NULL);
+		return (0);
 	while ((i < len && s[start + i]))
 	{
 		substr[i] = s[start + i];

@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/09 15:50:27 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:39:42 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 
 void	test_isalpha(void)
 {
-	printf("-------------------------\n\n");
+	printf("-------------------------\n");
 	printf("Testing isalpha\n");
+	printf("-------------------------\n");
 	printf("Isalpha returns %d\n", ft_isalpha(67));
 	printf("Isalpha returns %d\n", ft_isalpha(65));
 	printf("Isalpha returns %d\n", ft_isalpha(122));
@@ -274,16 +275,37 @@ void	test_substr(void)
 	printf("Testing substr\n");
 	printf("-------------------------\n");
 	char s1[] = "pineapple";
-	printf("Next test		\n2 2\n");
+	char s2[] = "";
+	
+	printf("Next test on pineapple -> 2 2\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 2, 2));
-	printf("Next test		\n3 5\n");
+	
+	printf("Next test on pineapple -> 3 5\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 3, 5));
-	printf("Next test		\n100 5\n");
+	
+	printf("Next test on pineapple -> 100 5\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 100, 5));
-	printf("Next test		\n 2 700\n");
+	
+	printf("Next test on pineapple -> 2 700\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 2, 700));
-	printf("Next test		\n 400 20\n");
+	
+	printf("Next test on pineapple -> 400 20\n");
 	printf("substr returns _%s_\n", ft_substr(s1, 400, 20));
+
+	printf("Next test on pineapple -> 400 20\n");
+	printf("substr returns _%s_\n", ft_substr("hola", 0, 73709551615));
+	
+	printf("Next test on empty string -> 0 0\n");
+	printf("substr returns _%s_\n", ft_substr(s2, 0, 0));
+	
+	printf("Next test on empty string -> 400 20\n");
+	printf("substr returns _%s_\n", ft_substr(s2, 400, 20));
+	
+	printf("Next test on empty string -> 2 1\n");
+	printf("substr returns _%s_\n", ft_substr(s2, 2, 1));
+	
+	printf("Next test on empty string -> 1 2\n");
+	printf("substr returns _%s_\n", ft_substr(s2, 1, 2));
 }
 
 void	test_strjoin()
@@ -391,10 +413,10 @@ void	test_strmapi()
 
 void	testfunction_2(unsigned int i, char *s)
 {	
-	if (!(i % 2 == 0))
-		s[i] = '!';
-	else 
-		s[i] = 'U';
+	if (i % 2 == 0)
+		*s = '!';
+	else
+		*s = 'U';
 }
 
 void	test_striteri()
@@ -412,16 +434,62 @@ void	test_striteri()
 
 void	test_ft_putchar_fd()
 {
+	printf("-------------------------\n");
+	printf("testing putchar\n");
+	printf("-------------------------\n");
 	ft_putchar_fd('H', 1);
 	ft_putchar_fd('E', 1);
 	ft_putchar_fd('I', 1);
 	ft_putchar_fd('!', 1);
+	ft_putchar_fd('\n', 1);
+}
+
+void	test_ft_putstr_fd()
+{
+	printf("-------------------------\n");
+	printf("testing putstr\n");
+	printf("-------------------------\n");	
+	ft_putstr_fd("Hello\n", 1);
+	ft_putstr_fd("????????\n", 1);
+}
+
+void	test_ft_putendl_fd()
+{
+	printf("-------------------------\n");
+	printf("testing putendl\n");
+	printf("-------------------------\n");	
+	ft_putendl_fd("Hello", 1);
+	ft_putendl_fd("????????", 1);
+}
+
+void	test_ft_putnbr_fd()
+{
+	printf("-------------------------\n");
+	printf("testing putnbr\n");
+	printf("-------------------------\n");	
+	printf("testing 0 ----> \n");
+	ft_putnbr_fd(0, 1);
+	printf("\n");
+	printf("testing 500 ----> \n");
+	ft_putnbr_fd(500, 1);
+	printf("\n");
+	printf("testing -578541 ----> \n");
+	ft_putnbr_fd(-578541, 1);
+	printf("\n");
+	printf("testing 54888655 ----> \n");
+	ft_putnbr_fd(54888655, 1);
+	printf("\n");
+	printf("testing 2147483647 ----> \n");
+	ft_putnbr_fd(2147483647, 1);
+	printf("\n");
+	printf("testing -2147483648 ----> \n");
+	ft_putnbr_fd(-2147483648, 1);
 	printf("\n");
 }
 
 int	main(void)
 {
-/* 	test_isalpha();
+	test_isalpha();
 	test_isdigit();
 	test_isalnum();
 	test_bzero();
@@ -431,8 +499,8 @@ int	main(void)
 	test_strlcpy();
 	//test_strlcat();
 	test_toupper();
-	test_tolower(); */
-	/* test_strchr();
+	test_tolower();
+	test_strchr();
 	test_strrchr();
 	test_strncmp();
 	test_memcmp();
@@ -440,7 +508,7 @@ int	main(void)
 	test_atoi();
 	test_calloc();
 	test_strdup();
-	test_memchr();*/
+	test_memchr();
 	test_substr();
 	test_strjoin();
 	test_strtrim();
@@ -449,5 +517,7 @@ int	main(void)
 	test_strmapi();
 	test_striteri();
 	test_ft_putchar_fd();
+	test_ft_putstr_fd();
+	test_ft_putnbr_fd();
 	return(0);
 }

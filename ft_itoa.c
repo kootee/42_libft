@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:36:46 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/09 10:06:48 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:49:55 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ int	check_length(long n)
 	if (!n)
 		i = 1;
 	if (n < 0)
-	{
-		n = n * -1;
 		i++;
-	}
-	while (n > 0)
+	while (n)
 	{
 		n /= 10;
 		i++;
@@ -51,7 +48,7 @@ char	*ft_itoa(int n)
 		ptr[0] = '-';
 	}
 	ptr[count] = 0;
-	while (num > 0)
+	while (num)
 	{
 		ptr[--count] = '0' + (num % 10);
 		num /= 10;
