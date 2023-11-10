@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/10 17:17:12 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:44:10 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -372,7 +372,7 @@ void	test_split()
 	}
 	printf("\nTest 3\n");
 	i = 0;
-	char **ptr3 = ft_split("lorem ipsum dolor sit amet", ' ');
+	char **ptr3 = ft_split("lorem fefewf dolor sit amet", ' ');
 	while (ptr3[i])
 	{
 		printf("no %d string is %s\n", i, ptr3[i]);
