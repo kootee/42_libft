@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 13:09:19 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:41:43 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,14 @@ void	test_memcpy(void)
 	char b[] = "MARIO";
 	char c[] = "abcdefgh";
 	char d[] = "LUIGI";
+	memcpy(c + 2, d, 5);
 	ft_memcpy(a + 2, b, 5);
 	memcpy(c + 2, d, 5);
-	printf("memcpy resut: %s\n", a);
+	ft_memcpy(a + 2, b, 5);
 	printf("lib resut: %s\n", c);
+	printf("memcpy resut: %s\n", a);
+	printf("memcpy resut: %s\n", ft_memcpy(((void *)0), "segfaulter tu dois", 17));
+	printf("memcpy resut: %s\n", ft_memcpy("segfaulter tu dois", ((void *)0), 17));
 }
 
 void	test_memset(void)
@@ -504,10 +508,10 @@ int	main(void)
 	test_bzero();
 	test_memcpy();
 	test_memset();
-	/* test_memmove();
+	test_memmove();
 	test_strlcpy();
 	test_strlcat();
-	test_toupper();
+	/* test_toupper();
 	test_tolower();
 	test_strchr();
 	test_strrchr();

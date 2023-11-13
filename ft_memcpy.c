@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:37:13 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 11:11:21 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:47:07 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	while (n--)
+	size_t	i;
+
+	i = 0;
+	if (!dst && !src)
+		return (0);
+	while (i < n)
+	{
 		*(unsigned char *)dst++ = *(unsigned char *)src++;
-	return (dst);
+		i++;
+	}
+	return (dst - i);
 }
