@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 16:04:44 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:54:00 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,8 +206,11 @@ void	test_memcmp(void)
 
 void	test_strnstr(void)
 {
-	printf("-------------------------\n\n");
+	char haystack[30] = "aaabcabcd";
+	
+	printf("-------------------------\n");
 	printf("Testing strnstr\n");
+	printf("-------------------------\n");
 	printf("1 Comparison results %s\n", ft_strnstr("Pineapple ", "apple", 20));
 	printf("2 Comparison results %s\n", ft_strnstr("AbraKadabra", "Kadabra", 20));
 	printf("3 Comparison results %s\n", ft_strnstr("A vry long sentence to look in ", "vry", 20));
@@ -219,6 +222,9 @@ void	test_strnstr(void)
 	printf("9 Comparison results %s\n", ft_strnstr("^*^", "", 0));
 	printf("10 Comparison results %s\n", ft_strnstr("pineapple", "orange", 10));
 	printf("11 Comparison results %s\n", ft_strnstr("lorem ipsum dolor sit amet", "lorem", 15));
+	printf("12 Comparison results _%s_\n", ft_strnstr(haystack, "abcd", 9));
+	printf("comparison _%s_\n", haystack + 5);
+	
 }
 
 void	test_atoi(void)
