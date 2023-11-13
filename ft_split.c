@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:37:01 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 09:39:27 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 10:19:57 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,12 @@ int	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
 {
 	unsigned int	i;
 	unsigned int	j;
-	unsigned int	str_len;
 	int				ptr_index;
 
 	i = 0;
 	j = 0;
-	str_len = ft_strlen(s);
 	ptr_index = 0;
-	while (ptr_index < num_of_strs && i + j < str_len)
+	while (ptr_index < num_of_strs && i + j < ft_strlen(s))
 	{
 		while (i < ft_strlen(s) && s[i] == c)
 			i++;
