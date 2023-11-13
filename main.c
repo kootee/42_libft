@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 14:35:18 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:04:44 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,13 +211,14 @@ void	test_strnstr(void)
 	printf("1 Comparison results %s\n", ft_strnstr("Pineapple ", "apple", 20));
 	printf("2 Comparison results %s\n", ft_strnstr("AbraKadabra", "Kadabra", 20));
 	printf("3 Comparison results %s\n", ft_strnstr("A vry long sentence to look in ", "vry", 20));
-	printf("4 Comparison results %s\n", ft_strnstr("onetwothrefourfivesixseveneight", "six", 20));
+	printf("4 Comparison results %s\n", ft_strnstr("onetwothrefourfivesixseveneight", "six", 32));
 	printf("5 Comparison results %s\n", ft_strnstr("Pineapple ", "apple", 4));
 	printf("6 Comparison results %s\n", ft_strnstr("AbraKadabra", "Kadabra", 4));
 	printf("7 Comparison results %s\n", ft_strnstr("_   _   _", "", 7));
 	printf("8 Comparison results %s\n", ft_strnstr("", "", 2));
 	printf("9 Comparison results %s\n", ft_strnstr("^*^", "", 0));
 	printf("10 Comparison results %s\n", ft_strnstr("pineapple", "orange", 10));
+	printf("11 Comparison results %s\n", ft_strnstr("lorem ipsum dolor sit amet", "lorem", 15));
 }
 
 void	test_atoi(void)
@@ -502,23 +503,23 @@ void	test_ft_putnbr_fd()
 
 int	main(void)
 {
-	test_isalpha();
+/* 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
 	test_bzero();
-	//test_memcpy();
+	test_memcpy();
 	test_memset();
 	test_memmove();
 	test_strlcpy();
 	test_strlcat();
-	/* test_toupper();
+	test_toupper();
 	test_tolower();
 	test_strchr();
 	test_strrchr();
 	test_strncmp();
-	test_memcmp();
+	test_memcmp(); */
 	test_strnstr();
-	test_atoi();
+	/* test_atoi();
 	test_calloc();
 	test_strdup();
 	test_memchr();
@@ -531,6 +532,6 @@ int	main(void)
 	test_striteri();
 	test_ft_putchar_fd();
 	test_ft_putstr_fd();
-	test_ft_putnbr_fd(); */
+	test_ft_putnbr_fd();  */
 	return(0);
 }
