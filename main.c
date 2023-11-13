@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/10 17:44:10 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 11:40:15 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,16 +101,25 @@ void	test_strlcpy(void)
 
 void	test_strlcat(void)
 {
-	printf("-------------------------\n\n");
+	printf("-------------------------\n");
 	printf("Testing strlcat\n");
-	char a[] = "12345678";
+	printf("-------------------------\n");
+	char a[20] = "12345678";
 	char b[] = "hello";
-	char c[] = "12345678"; //9
+	char c[20] = "12345678"; 
 	char d[] = "hello";
-	int size = ft_strlcat(a, b, 9);
-	int size1 = strlcat(c, d, 9);
-	printf("result from strlcat is %s %d\n", a, size);
-	printf("lib function gives %s %s %d\n", c, d, size1);
+	char e[10] = "a";
+	int size = ft_strlcat(a, b, 12);
+	int size1 = strlcat(c, d, 12);
+	printf("result from strlcat is %s - %s - %d\n", a, b, size);
+	printf("lib function gives %s - %s - %d\n", c, d, size1);
+
+	printf("test1: %zu\n", ft_strlcat("pqrstuvwxyz", "abcd", 0));
+	printf("test2: %zu\n", ft_strlcat("pqrstuvwxyz", "abcd", 1));
+	printf("test3: %zu\n", ft_strlcat("pqrstuvwxyz", "abcd", 2));
+	printf("test4: %zu\n", ft_strlcat("pqrstuvwxyz", "abcd", 3));
+	printf("test5: %zu\n", ft_strlcat("pqrstuvwxyz", "abcd", 4));
+	printf("test6: %zu \n", ft_strlcat(e, "feh je fsehfsk fh", 6));
 }
 
 void	test_toupper(void)
@@ -489,16 +498,16 @@ void	test_ft_putnbr_fd()
 
 int	main(void)
 {
-	test_isalpha();
+/* 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
 	test_bzero();
 	test_memcpy();
 	test_memset();
 	test_memmove();
-	test_strlcpy();
-	//test_strlcat();
-	test_toupper();
+	test_strlcpy(); */
+	test_strlcat();
+/* 	test_toupper();
 	test_tolower();
 	test_strchr();
 	test_strrchr();
@@ -518,6 +527,6 @@ int	main(void)
 	test_striteri();
 	test_ft_putchar_fd();
 	test_ft_putstr_fd();
-	test_ft_putnbr_fd();
+	test_ft_putnbr_fd(); */
 	return(0);
 }

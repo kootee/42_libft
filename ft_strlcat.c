@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:11:40 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 14:41:03 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 11:47:50 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	dest_strlen = ft_strlen(dst);
-	if (!dstsize || dest_strlen > dstsize)
-		return (ft_strlen(dst) + ft_strlen(src));
-	while (i < dstsize - 1 && src[i])
+	if (!dstsize || dest_strlen >= dstsize)
+		return (ft_strlen(src) + dstsize);
+	while (i < dstsize - dest_strlen - 1 && src[i])
 	{
 		dst[dest_strlen + i] = src[i];
 		i++;
 	}
 	dst[dest_strlen + i] = 0;
-	return (ft_strlen(dst));
+	return (ft_strlen(dst) + ft_strlen(&src[i]));
 }
