@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 14:40:00 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/02 09:59:38 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:00:54 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	size;
+	size_t	src_len;
+	size_t	i;
 
-	size = dstsize - 1;
-	if (dstsize)
+	i = 0;
+	src_len = ft_strlen(src);
+	if (!dstsize)
+		return (src_len);
+	while (*src && i < dstsize - 1)
 	{
-		while (--dstsize)
-			*dst++ = *src++;
-		*dst = 0;
+		*dst++ = *src++;
+		i++;
 	}
-	return (ft_strlen(src - size));
+	if (i < dstsize)
+		*dst = 0;
+	return (src_len);
 }

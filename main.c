@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 13:41:43 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:35:18 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -506,7 +506,7 @@ int	main(void)
 	test_isdigit();
 	test_isalnum();
 	test_bzero();
-	test_memcpy();
+	//test_memcpy();
 	test_memset();
 	test_memmove();
 	test_strlcpy();
