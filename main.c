@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 11:40:15 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:09:19 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -498,16 +498,16 @@ void	test_ft_putnbr_fd()
 
 int	main(void)
 {
-/* 	test_isalpha();
+	test_isalpha();
 	test_isdigit();
 	test_isalnum();
 	test_bzero();
 	test_memcpy();
 	test_memset();
-	test_memmove();
-	test_strlcpy(); */
+	/* test_memmove();
+	test_strlcpy();
 	test_strlcat();
-/* 	test_toupper();
+	test_toupper();
 	test_tolower();
 	test_strchr();
 	test_strrchr();
