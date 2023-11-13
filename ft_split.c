@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:37:01 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/09 10:21:23 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/13 09:39:27 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 char	ft_count_strs(const char *s, char c)
 {
 	int	i;
-	int	str_len;
 	int	str_num;
+	int	str_len;
 
 	i = 0;
-	str_len = ft_strlen(s);
 	str_num = 0;
+	str_len = ft_strlen(s);
 	while (s[i])
 	{
 		while (i < str_len && s[i] == c)
@@ -34,38 +34,46 @@ char	ft_count_strs(const char *s, char c)
 	return (str_num);
 }
 
-void	ft_free(char **ptr, int num_of_strs)
+void	ft_free(char **ptr, int ptr_index)
 {
-	if (num_of_strs)
+	int	i;
+
+	i = 0;
+	while (i <= ptr_index)
 	{
-		while (num_of_strs--)
-			free(ptr[num_of_strs]);
+		free(ptr[i]);
+		i++;
 	}
-	free(ptr);
 }
 
-void	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
+int	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
 {
 	unsigned int	i;
 	unsigned int	j;
+	unsigned int	str_len;
 	int				ptr_index;
 
 	i = 0;
 	j = 0;
+	str_len = ft_strlen(s);
 	ptr_index = 0;
-	while (ptr_index < num_of_strs)
+	while (ptr_index < num_of_strs && i + j < str_len)
 	{
 		while (i < ft_strlen(s) && s[i] == c)
 			i++;
-		while (i + j < ft_strlen(s) && s[i + j] != c)
+		while ((i + j) < ft_strlen(s) && s[i + j] != c)
 			j++;
 		ptr[ptr_index] = ft_substr(s, i, j);
 		if (!ptr[ptr_index])
-			ft_free(ptr, num_of_strs);
+		{
+			ft_free(ptr, ptr_index);
+			return (1);
+		}
 		i += j;
 		j = 0;
 		ptr_index++;
 	}
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -76,10 +84,14 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	num_of_strs = ft_count_strs(s, c);
-	splt_ptr = malloc(sizeof(char *) * num_of_strs + 1);
+	splt_ptr = malloc((num_of_strs + 1) * sizeof(char *));
 	if (!splt_ptr)
 		return (0);
-	ft_set_strs(s, splt_ptr, num_of_strs, c);
+	if (ft_set_strs(s, splt_ptr, num_of_strs, c))
+	{
+		free(splt_ptr);
+		return (0);
+	}
 	splt_ptr[num_of_strs] = 0;
 	return (splt_ptr);
 }
