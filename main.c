@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/14 09:53:47 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:20:53 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,12 +262,21 @@ void	test_calloc(void)
 	printf("Testing calloc\n");
 
 	unsigned char *p;
-
+	unsigned char *v;
+	
 	p = ft_calloc(4, 1);
+	v = ft_calloc(10, 8);
 	printf("Calloc p is %02X ", *p);
 	printf("%02X ", *(p + 1));
 	printf("%02X ", *(p + 2));
 	printf("%02X\n", *(p + 3));
+	int i = 0;
+	while (i <= 85)
+	{
+		printf("%02X ", *(v + i));
+		i++;
+	}
+	printf("\nend of calloc test\n");
 }
 
 void test_strdup(void)
@@ -533,9 +542,9 @@ int	main(void)
 	test_strnstr();
 	test_atoi();
 	test_memchr();
-	/* test_calloc();
 	test_strdup();
-	test_substr();
+	test_calloc();
+	/*test_substr();
 	test_strjoin();
 	test_strtrim();
 	test_split();
