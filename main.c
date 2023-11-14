@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/14 09:27:50 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:40:30 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,8 +285,14 @@ void	test_memchr(void)
 	printf("Testing memchr\n");
 	
 	char msg[] = "Helloooooooooooo";
-	printf("memchr returns %s\n", ft_memchr(msg, 111, 7));
-	printf("memchr returns %s\n", ft_memchr(msg, 111, 2));
+	char msg1[] = "Hellooyoooo23574ooomoo36o";
+	printf("memchr returns %s\n", ft_memchr(msg, 'o', 7));
+	printf("memchr returns %s\n", ft_memchr(msg, 'p', 2));
+	printf("memchr returns %s\n", ft_memchr(msg, 'w', 2));
+	printf("memchr returns %s\n", ft_memchr(msg1, 'U', 0));
+	printf("memchr returns %s\n", ft_memchr(msg1, '0', 0));
+	printf("memchr returns %s\n", ft_memchr(msg1, 'm', 185));
+	printf("memchr returns %s\n", ft_memchr(msg1, '\0', 185));
 }
 
 void	test_substr(void)
@@ -526,9 +532,9 @@ int	main(void)
 	test_memcmp(); */
 	test_strnstr();
 	test_atoi();
+	test_memchr();
 	/* test_calloc();
 	test_strdup();
-	test_memchr();
 	test_substr();
 	test_strjoin();
 	test_strtrim();
