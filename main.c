@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 16:54:00 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:27:50 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -525,8 +525,8 @@ int	main(void)
 	test_strncmp();
 	test_memcmp(); */
 	test_strnstr();
-	/* test_atoi();
-	test_calloc();
+	test_atoi();
+	/* test_calloc();
 	test_strdup();
 	test_memchr();
 	test_substr();

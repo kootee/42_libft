@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:53:21 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/14 09:11:20 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:23:24 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	j = 0;
 	if (!*needle)
 		return ((char *)haystack);
-	while (*haystack && len) 
+	while (*haystack && len)
 	{
 		i = 0;
 		j = len;
