@@ -6,13 +6,13 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:37:01 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/13 14:05:50 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:03:05 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_count_strs(const char *s, char c)
+static char	ft_count_strs(const char *s, char c)
 {
 	int	i;
 	int	str_num;
@@ -34,7 +34,7 @@ char	ft_count_strs(const char *s, char c)
 	return (str_num);
 }
 
-void	ft_free(char **ptr, int ptr_index)
+static void	ft_free(char **ptr, int ptr_index)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ void	ft_free(char **ptr, int ptr_index)
 	}
 }
 
-int	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
+static int	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
 {
 	unsigned int	i;
 	unsigned int	j;
