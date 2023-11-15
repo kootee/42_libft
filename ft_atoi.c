@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:53:57 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/14 11:43:49 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:07:33 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	nbr;
+	int		i;
+	long	nbr;
 
 	i = 1;
 	nbr = 0;
@@ -27,12 +27,11 @@ int	ft_atoi(const char *str)
 			i *= -1;
 		str++;
 	}
-	while ((*str >= '0' && *str <= '9'))
+	while (*str >= '0' && *str <= '9')
 	{
 		nbr *= 10;
 		nbr += *str - 48;
 		str++;
 	}
-	return (nbr * i);
-	//check that not bigger than int
+	return ((int)nbr * i);
 }

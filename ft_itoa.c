@@ -6,13 +6,13 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:36:46 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/10 11:49:55 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:08:16 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_length(long n)
+static int	check_length(long n)
 {
 	int	i;
 

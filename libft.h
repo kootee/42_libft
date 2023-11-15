@@ -6,14 +6,14 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:45:08 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/10 13:17:39 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:47:22 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdio.h>
-# include <string.h>
+# include <string.h>//
+# include <stdio.h>//
 # include <stdlib.h>
 # include <unistd.h>
 

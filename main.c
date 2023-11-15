@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/14 11:59:41 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:57:06 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	test_memcpy(void)
 	ft_memcpy(a + 2, b, 5);
 	printf("lib resut: %s\n", c);
 	printf("memcpy resut: %s\n", a);
-	printf("memcpy resut: %s\n", ft_memcpy(((void *)0), "segfaulter tu dois", 17));
-	printf("memcpy resut: %s\n", ft_memcpy("segfaulter tu dois", ((void *)0), 17));
+	//printf("memcpy resut: %s\n", ft_memcpy(((void *)0), "segfaulter tu dois", 17));
+	//printf("memcpy resut: %s\n", ft_memcpy("segfaulter tu dois", ((void *)0), 17));
 }
 
 void	test_memset(void)
@@ -172,11 +172,14 @@ void	test_strchr(void)
 	printf("1 result is %s\n", ft_strchr(a, 'a'));
 	printf("2 result is %s\n", ft_strchr(a, 'n'));
 	printf("3 result is %s\n", ft_strchr(a, '!'));
-	char c[6] = "abcde";
+	char c[20] = "abcde";
 	printf("4 result is (not in string, should return null) %s\n", ft_strchr(c, 'D'));
 	printf("lib result is (not in string, should return null) %s\n", strchr(c, 'D'));
-	printf("5 result for null is %s\n", ft_strchr(c, 0));
-	printf("lib result is %s\n", strchr(c, 0));
+	printf("5 result for null is %p\n", ft_strchr(c, 0));
+	printf("lib result is %p\n", strchr(c, 0));
+	printf("testing fsoares %p\n", ft_strchr("teste", '\0'));
+	printf("lib result for fsoares %p\n", strchr("teste", '\0'));
+	printf("strlen %zu libfunc gives %zu\n", ft_strlen("123"), strlen("123"));
 }
 
 void	test_strrchr(void)
@@ -241,6 +244,7 @@ void	test_strnstr(void)
 
 void	test_atoi(void)
 {
+	size_t	testsize = -1;
 	printf("-------------------------\n\n");
 	printf("Testing atoi\n");
 	printf("Should print: 123456: %d \n", ft_atoi(" --+++++--+123456ab567"));
@@ -248,6 +252,15 @@ void	test_atoi(void)
 	printf("Should print -567: %d \n", ft_atoi(" ---++567"));
 	printf("Should print -154862445: %d \n", ft_atoi(" --+++++-154862445e56444"));
 	printf("Should print 123456546: %d \n", ft_atoi("      123456546ab8567"));
+	printf("Should print with too big: %d \n", ft_atoi("2544500004454455684158455844"));
+	printf("Should print with too big library func: %d \n", atoi("2544500004454455684158455844"));
+	printf("should not work: %d \n", ft_atoi("fsg54354drg"));
+	printf("should not work: %d \n", atoi("fsg54354drg"));
+	printf("Should print with too big: %d \n", ft_atoi("21474836490"));
+	printf("Should print with too big library func: %d \n", atoi("21474836490"));
+	printf("Should print with too big: %d \n", ft_atoi("-2147483649"));
+	printf("Should print with too big library func: %d \n", atoi("-2147483649"));
+	printf("max size of size t %zu\n", testsize);
 }
 
 void	test_bzero()
@@ -536,7 +549,7 @@ void	test_ft_putnbr_fd()
 
 int	main(void)
 {
-/* 	test_isalpha();
+ 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
 	test_bzero();
@@ -546,17 +559,17 @@ int	main(void)
 	test_strlcat();
 	test_toupper();
 	test_tolower();
-	test_strchr();
 	test_strrchr();
-	test_memcmp(); */
+	test_memcmp();
 	test_strncmp();
 	test_strnstr();
-	test_atoi();
 	test_memchr();
 	test_strdup();
 	test_calloc();
 	test_memmove();
-	/*test_substr();
+	test_strchr();
+	test_atoi();
+	test_substr();
 	test_strjoin();
 	test_strtrim();
 	test_split();
@@ -565,6 +578,6 @@ int	main(void)
 	test_striteri();
 	test_ft_putchar_fd();
 	test_ft_putstr_fd();
-	test_ft_putnbr_fd();  */
+	test_ft_putnbr_fd();
 	return(0);
 }

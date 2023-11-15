@@ -6,17 +6,21 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:33:23 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/03 14:41:46 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/15 10:39:50 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
-{
-	while (*s || c == 0)
+{	char	src_chr;
+
+	src_chr = c;
+	if (src_chr == 0)
+		return((char *)(s + ft_strlen(s)));
+	while (*s || src_chr == 0)
 	{
-		if (*s == (char)c)
+		if (*s == src_chr)
 			return ((char *)s);
 		s++;
 	}
