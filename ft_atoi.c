@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:53:57 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/14 09:48:04 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/14 11:43:49 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (nbr * i);
+	//check that not bigger than int
 }

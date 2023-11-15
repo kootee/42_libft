@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/14 10:20:53 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/14 11:59:41 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,18 @@ void	test_memmove(void)
 	char b[6] = "uuuuu";
 	ft_memmove(a, b, 3);
 	printf("memmove result is %s\n", a);
+	
+	int	i = 0;
+	char c[28] = "lorem ipsum dolor sit amet";
+	char d[] = "con\0sec\0\0te\0tur";
+	ft_memmove(c, d, 15);
+	while (i < 10)
+	{
+		write(1, &c[i], 1);
+		i++;
+		printf("| i is %i ", i);
+	}
+	printf("\nmemmove result is %s\n", c);
 }
 
 void	test_strlcpy(void)
@@ -530,7 +542,6 @@ int	main(void)
 	test_bzero();
 	test_memcpy();
 	test_memset();
-	test_memmove();
 	test_strlcpy();
 	test_strlcat();
 	test_toupper();
@@ -544,6 +555,7 @@ int	main(void)
 	test_memchr();
 	test_strdup();
 	test_calloc();
+	test_memmove();
 	/*test_substr();
 	test_strjoin();
 	test_strtrim();

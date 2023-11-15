@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:54:20 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 12:07:11 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/15 09:58:18 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,24 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*src_ptr;
+	unsigned char		*dest_ptr;
+	unsigned char		*tmp_src;
 
-	src_ptr = ft_strdup(src);
-	while (len--)
-		*(unsigned char *)dst++ = *src_ptr++;
+	if (dst == src || len == 0)
+		return (dst);
+	if (dst < src)
+	{
+		dest_ptr = (unsigned char *)dst;
+		tmp_src = (unsigned char *)src;
+		while (len--)
+			*dest_ptr++ = *tmp_src++;
+	}
+	else
+	{
+		dest_ptr = (unsigned char *)dst + (len - 1);
+		tmp_src = (unsigned char *)src + (len - 1);
+		while (len--)
+			*dest_ptr-- = *tmp_src--;
+	}
 	return (dst);
 }
