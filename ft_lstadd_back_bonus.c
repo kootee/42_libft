@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:33:54 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/16 14:20:50 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:48:45 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void		ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	last_node = ft_lstlast(*lst);
-	new->next = last_node->next;
 	last_node->next = new;
+	new->next = (void *)0;
 }

@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/16 18:04:56 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:51:46 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -556,19 +556,17 @@ void f_del_node(t_list *node)
 void	test_prntlst(t_list *node)
 {	
 	printf("\n[");
-	while(!node)
+	while(node)
 	{
 		printf(" %s ", node->content);
 		node = node->next;
 	}
-	printf("\n]");
-	printf(" end of list.\n");
+	printf("]\n");
 }
 
 void	test_lists()
 {
 	t_list	**test_list = malloc((sizeof(t_list) * 15) + 1);
-	t_list	*last = ft_lstnew((void *)0);
 	
 	t_list	*head = ft_lstnew("Bananas");
 	t_list	*node0 = ft_lstnew("Oranges");
@@ -584,28 +582,21 @@ void	test_lists()
 	node0->next = node1;
 	node1->next = node2;
 	node2->next = node3;
-	node3->next = last;
 	
 	printf("lst size is now %i\n", ft_lstsize(head));
 	printf("added stuff to the list, printing...\n");
-	printf("\n[");
-	t_list *ptr = head;
-	while(!ptr)
-	{
-		printf(" %s ", ptr->content);
-		ptr = ptr->next;
-	}
-	printf("\n]");
-	printf(" end of list.\n");
-	printf("added kiwis to the front, printing list...\n");
+	
 	ft_lstadd_front(test_list, insert_at_front);
+	printf("added kiwis to the front, printing list...\n");
 	test_prntlst(head);
 	printf("added watermelons to the end, printing list...\n");
 	ft_lstadd_back(test_list, insert_at_end);
+	test_prntlst(head);
 
 	printf("lst size is now %i\n", ft_lstsize(head));
 	printf("content of last node is %s\n", ft_lstlast(head)->content);
 	printf("printing entire list...\n");
+	test_prntlst(head);
 	printf("deleting node number 2...\n");
 	//ft_lstdelone(*(*test_list + 2), f_del_node);
 	free(test_list);
