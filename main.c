@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/16 17:26:34 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:04:56 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -553,14 +553,13 @@ void f_del_node(t_list *node)
 	return;
 }
 
-void	test_prntlst(t_list *head)
+void	test_prntlst(t_list *node)
 {	
-	t_list *ptr = head;
 	printf("\n[");
-	while(!ptr)
+	while(!node)
 	{
-		printf(" %s ", ptr->content);
-		ptr = ptr->next;
+		printf(" %s ", node->content);
+		node = node->next;
 	}
 	printf("\n]");
 	printf(" end of list.\n");
@@ -569,25 +568,35 @@ void	test_prntlst(t_list *head)
 void	test_lists()
 {
 	t_list	**test_list = malloc((sizeof(t_list) * 15) + 1);
-	t_list	*head = ft_lstnew("Bananas");
-	t_list	*last = 0;
+	t_list	*last = ft_lstnew((void *)0);
 	
-	*test_list = head;
-	t_list	*new_node = ft_lstnew("Oranges");
-	t_list	*new_node1 = ft_lstnew("Pineapples");
-	t_list	*new_node2 = ft_lstnew("Apples");
-	t_list	*new_node3 = ft_lstnew("Limes");
-
+	t_list	*head = ft_lstnew("Bananas");
+	t_list	*node0 = ft_lstnew("Oranges");
+	t_list	*node1 = ft_lstnew("Pineapples");
+	t_list	*node2 = ft_lstnew("Apples");
+	t_list	*node3 = ft_lstnew("Limes");
 	t_list	*insert_at_front = ft_lstnew("Kiwis");
 	t_list	*insert_at_end = ft_lstnew("Watermelons");
+	printf("First node content: %s\n", head->content);
+	printf("Second node content: %s\n", node0->content);
+	*test_list = head;
+	head->next = node0;
+	node0->next = node1;
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = last;
 	
-	head->next = new_node;
-	new_node1->next = new_node2;
-	new_node2->next = new_node3;
-	new_node3->next = last;
-	
+	printf("lst size is now %i\n", ft_lstsize(head));
 	printf("added stuff to the list, printing...\n");
-	test_prntlst(head);
+	printf("\n[");
+	t_list *ptr = head;
+	while(!ptr)
+	{
+		printf(" %s ", ptr->content);
+		ptr = ptr->next;
+	}
+	printf("\n]");
+	printf(" end of list.\n");
 	printf("added kiwis to the front, printing list...\n");
 	ft_lstadd_front(test_list, insert_at_front);
 	test_prntlst(head);
@@ -595,7 +604,6 @@ void	test_lists()
 	ft_lstadd_back(test_list, insert_at_end);
 
 	printf("lst size is now %i\n", ft_lstsize(head));
-	
 	printf("content of last node is %s\n", ft_lstlast(head)->content);
 	printf("printing entire list...\n");
 	printf("deleting node number 2...\n");
