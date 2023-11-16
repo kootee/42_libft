@@ -58,15 +58,15 @@ all:	${NAME}
 
 ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -c ${SRCS}
-	ar -rc $@ $<
+	ar -rc ${NAME} ${OBJS}
 	cc main.c -L. -lft -o main
 
 bonus: ${NAME} ${BONUS}
-		ar -rcs $^
+		ar -rcs ${NAME} ${BONUS}
 
 clean:
 	@echo "cleaning..."
-	@rm -f ${OBJS}
+	@rm -f ${OBJS} ${BONUS}
 
 
 fclean: clean

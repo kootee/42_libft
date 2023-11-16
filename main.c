@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/15 15:57:06 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:25:26 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -547,6 +547,13 @@ void	test_ft_putnbr_fd()
 	printf("\n");
 }
 
+/* void	test_lists()
+{
+	struct t_list	*head = 0;
+	struct t_list	*list = head;
+	
+} */
+
 int	main(void)
 {
  	test_isalpha();
@@ -579,5 +586,6 @@ int	main(void)
 	test_ft_putchar_fd();
 	test_ft_putstr_fd();
 	test_ft_putnbr_fd();
+	//test_lists();
 	return(0);
 }

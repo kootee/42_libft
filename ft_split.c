@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:37:01 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/15 16:03:05 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:32:20 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void	ft_free(char **ptr, int ptr_index)
 		free(ptr[i]);
 		i++;
 	}
+	free(ptr);
 }
 
 static int	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
@@ -71,6 +72,7 @@ static int	ft_set_strs(char const *s, char **ptr, int num_of_strs, char c)
 		j = 0;
 		ptr_index++;
 	}
+	ptr[num_of_strs] = 0;
 	return (0);
 }
 
@@ -86,10 +88,6 @@ char	**ft_split(char const *s, char c)
 	if (!splt_ptr)
 		return (0);
 	if (ft_set_strs(s, splt_ptr, num_of_strs, c))
-	{
-		free(splt_ptr);
 		return (0);
-	}
-	splt_ptr[num_of_strs] = 0;
 	return (splt_ptr);
 }
