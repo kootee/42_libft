@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/16 11:25:26 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:26:34 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,10 +247,10 @@ void	test_atoi(void)
 	size_t	testsize = -1;
 	printf("-------------------------\n\n");
 	printf("Testing atoi\n");
-	printf("Should print: 123456: %d \n", ft_atoi(" --+++++--+123456ab567"));
-	printf("Should print 1267: %d \n", ft_atoi(" --+1267"));
-	printf("Should print -567: %d \n", ft_atoi(" ---++567"));
-	printf("Should print -154862445: %d \n", ft_atoi(" --+++++-154862445e56444"));
+	printf("Should print: 123456: %d \n", ft_atoi("+123456ab567"));
+	printf("Should print 1267: %d \n", ft_atoi("+1267"));
+	printf("Should print -567: %d \n", ft_atoi("+567"));
+	printf("Should print -154862445: %d \n", ft_atoi("-154862445e56444"));
 	printf("Should print 123456546: %d \n", ft_atoi("      123456546ab8567"));
 	printf("Should print with too big: %d \n", ft_atoi("2544500004454455684158455844"));
 	printf("Should print with too big library func: %d \n", atoi("2544500004454455684158455844"));
@@ -544,15 +544,65 @@ void	test_ft_putnbr_fd()
 	printf("\n");
 	printf("testing -2147483648 ----> \n");
 	ft_putnbr_fd(-2147483648, 1);
-	printf("\n");
+	printf("\n");	
 }
 
-/* void	test_lists()
+void f_del_node(t_list *node)
 {
-	struct t_list	*head = 0;
-	struct t_list	*list = head;
+	node->content = 0;
+	return;
+}
+
+void	test_prntlst(t_list *head)
+{	
+	t_list *ptr = head;
+	printf("\n[");
+	while(!ptr)
+	{
+		printf(" %s ", ptr->content);
+		ptr = ptr->next;
+	}
+	printf("\n]");
+	printf(" end of list.\n");
+}
+
+void	test_lists()
+{
+	t_list	**test_list = malloc((sizeof(t_list) * 15) + 1);
+	t_list	*head = ft_lstnew("Bananas");
+	t_list	*last = 0;
 	
-} */
+	*test_list = head;
+	t_list	*new_node = ft_lstnew("Oranges");
+	t_list	*new_node1 = ft_lstnew("Pineapples");
+	t_list	*new_node2 = ft_lstnew("Apples");
+	t_list	*new_node3 = ft_lstnew("Limes");
+
+	t_list	*insert_at_front = ft_lstnew("Kiwis");
+	t_list	*insert_at_end = ft_lstnew("Watermelons");
+	
+	head->next = new_node;
+	new_node1->next = new_node2;
+	new_node2->next = new_node3;
+	new_node3->next = last;
+	
+	printf("added stuff to the list, printing...\n");
+	test_prntlst(head);
+	printf("added kiwis to the front, printing list...\n");
+	ft_lstadd_front(test_list, insert_at_front);
+	test_prntlst(head);
+	printf("added watermelons to the end, printing list...\n");
+	ft_lstadd_back(test_list, insert_at_end);
+
+	printf("lst size is now %i\n", ft_lstsize(head));
+	
+	printf("content of last node is %s\n", ft_lstlast(head)->content);
+	printf("printing entire list...\n");
+	printf("deleting node number 2...\n");
+	//ft_lstdelone(*(*test_list + 2), f_del_node);
+	free(test_list);
+}
+
 
 int	main(void)
 {
@@ -575,7 +625,6 @@ int	main(void)
 	test_calloc();
 	test_memmove();
 	test_strchr();
-	test_atoi();
 	test_substr();
 	test_strjoin();
 	test_strtrim();
@@ -586,6 +635,7 @@ int	main(void)
 	test_ft_putchar_fd();
 	test_ft_putstr_fd();
 	test_ft_putnbr_fd();
-	//test_lists();
+	test_atoi();
+	test_lists();
 	return(0);
 }

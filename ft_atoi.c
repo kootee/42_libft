@@ -6,14 +6,13 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:53:57 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/15 12:07:33 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:39:08 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_atoi(const char *str)
 {
+	//long max return -1
 	int		i;
 	long	nbr;
 

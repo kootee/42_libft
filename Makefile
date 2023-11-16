@@ -50,7 +50,7 @@ BSRCS = ft_lstnew_bonus.c \
 
 OBJS = ${SRCS:.c=.o}
 
-BONUS = ${BSRCS:.c=.o}
+BOBJS = ${BSRCS:.c=.o}
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -59,19 +59,20 @@ all:	${NAME}
 ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -c ${SRCS}
 	ar -rc ${NAME} ${OBJS}
-	cc main.c -L. -lft -o main
 
-bonus: ${NAME} ${BONUS}
-		ar -rcs ${NAME} ${BONUS}
+bonus: .bonus
+
+.bonus: ${OBJS} ${BOBJS}
+	ar -r ${NAME} $?
+	touch .bonus
 
 clean:
 	@echo "cleaning..."
-	@rm -f ${OBJS} ${BONUS}
-
+	@rm -f ${OBJS}
 
 fclean: clean
 	@echo "cleaning all files..."
-	@rm -f ${NAME}
+	@rm -f ${NAME} ${BOBJS}
 	@rm -f main.o main
 
 re: fclean all

@@ -6,11 +6,9 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:54:57 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/10 15:49:02 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:22:48 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
