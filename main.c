@@ -6,13 +6,14 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/16 18:51:46 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/18 12:58:33 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Tests for libft */
 
 #include "libft.h"
+#include <limits.h>
 
 void	test_isalpha(void)
 {
@@ -30,6 +31,7 @@ void	test_isdigit(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing isdigit\n");
+	printf("-------------------------\n");
 	printf("isdigit returns %d | 5\n", ft_isdigit('5'));
 	printf("isdigit returns %d | r\n", ft_isdigit('r'));
 	printf("isdigit returns %d | h\n", ft_isdigit('h'));
@@ -42,6 +44,7 @@ void	test_isalnum(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing isalnum\n");
+	printf("-------------------------\n");
 	printf("isalnum returns %d\n", ft_isalnum(116));
 	printf("isalnum returns %d\n", ft_isalnum(54));
 	printf("isalnum returns %d\n", ft_isalnum(79));
@@ -53,6 +56,7 @@ void	test_memcpy(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing memcpy\n");
+	printf("-------------------------\n");
 	char a[] = "abcdefgh";
 	char b[] = "MARIO";
 	char c[] = "abcdefgh";
@@ -71,6 +75,7 @@ void	test_memset(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing memset\n");
+	printf("-------------------------\n");
 	char a[] = "Hello";
 	char b[] = "Hello";
 	ft_memset(a, 'A', 4);
@@ -83,6 +88,7 @@ void	test_memmove(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing memmove\n");
+	printf("-------------------------\n");
 	char a[6] = "iiiii";
 	char b[6] = "uuuuu";
 	ft_memmove(a, b, 3);
@@ -105,6 +111,7 @@ void	test_strlcpy(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing strlcpy\n");
+	printf("-------------------------\n");
 	char a[6] = "iiiii";
 	char b[6] = "uuuuu";
 	char c[6] = "iiiii";
@@ -142,6 +149,7 @@ void	test_toupper(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing toupper\n");
+	printf("-------------------------\n");
 	int	a = 97;
 	int b = 122;
 	int c = 62;
@@ -155,6 +163,7 @@ void	test_tolower(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing tolower\n");
+	printf("-------------------------\n");
 	int	a = 'A';
 	int b = 'Z';
 	int c = 63;
@@ -168,6 +177,7 @@ void	test_strchr(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing strchr\n");
+	printf("-------------------------\n");
 	char a[] = "pineapple!";
 	printf("1 result is %s\n", ft_strchr(a, 'a'));
 	printf("2 result is %s\n", ft_strchr(a, 'n'));
@@ -186,6 +196,7 @@ void	test_strrchr(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing strrchr\n");
+	printf("-------------------------\n");
 	char a[10] = "pineapple";
 	int	b = 'p';
 	printf("result is %s\n", ft_strrchr(a, b));
@@ -200,6 +211,7 @@ void	test_strncmp(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing strncmp\n");
+	printf("-------------------------\n");
 	printf("1 Comparison results %d \n", ft_strncmp("ABCD ", "ABCd", 40));
 	printf("2 Comparison results %d \n", ft_strncmp("", "Kadabra", 3));
 	printf("3 Comparison results %d \n", ft_strncmp("   ", "    ", 7));
@@ -211,6 +223,7 @@ void	test_memcmp(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing memcmp\n");
+	printf("-------------------------\n");
 	printf("1 Comparison results %d \n", ft_memcmp("ABCD ", "ABCd", 40));
 	printf("2 Comparison results %d \n", ft_memcmp("", "Kadabra", 3));
 	printf("3 Comparison results %d \n", ft_memcmp("   ", "    ", 7));
@@ -247,6 +260,7 @@ void	test_atoi(void)
 	size_t	testsize = -1;
 	printf("-------------------------\n\n");
 	printf("Testing atoi\n");
+	printf("-------------------------\n");
 	printf("Should print: 123456: %d \n", ft_atoi("+123456ab567"));
 	printf("Should print 1267: %d \n", ft_atoi("+1267"));
 	printf("Should print -567: %d \n", ft_atoi("+567"));
@@ -285,7 +299,7 @@ void	test_calloc(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing calloc\n");
-
+	printf("-------------------------\n");
 	unsigned char *p;
 	unsigned char *v;
 	
@@ -308,7 +322,7 @@ void test_strdup(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing strdup\n");
-	
+	printf("-------------------------\n");
 	char msg[] = "Helloooooooooooo";
 	printf("strdup returns %s\n", ft_strdup(msg));
 }
@@ -317,7 +331,7 @@ void	test_memchr(void)
 {
 	printf("-------------------------\n\n");
 	printf("Testing memchr\n");
-	
+	printf("-------------------------\n");
 	char msg[] = "Helloooooooooooo";
 	char msg1[] = "Hellooyoooo23574ooomoo36o";
 	printf("memchr returns %s\n", ft_memchr(msg, 'o', 7));
@@ -372,7 +386,7 @@ void	test_strjoin()
 {
 	printf("-------------------------\n\n");
 	printf("Testing strjoin\n");
-	
+	printf("-------------------------\n");
 	char s1[] = "pine";
 	char s2[] = "apple";
 	char sa[] = "hur";
@@ -385,7 +399,7 @@ void	test_strtrim()
 {
 	printf("-------------------------\n");
 	printf("Testing strtrim\n");
-	
+	printf("-------------------------\n");
 	char s1[] = "213ABC---DE123";
 	char s2[] = "123";
 	char sa[] = "fjewiofsgjioegj";
@@ -544,13 +558,12 @@ void	test_ft_putnbr_fd()
 	printf("\n");
 	printf("testing -2147483648 ----> \n");
 	ft_putnbr_fd(-2147483648, 1);
-	printf("\n");	
+	printf("\n");
 }
 
-void f_del_node(t_list *node)
+void f_del_node(void *content)
 {
-	node->content = 0;
-	return;
+	free(content);
 }
 
 void	test_prntlst(t_list *node)
@@ -567,7 +580,6 @@ void	test_prntlst(t_list *node)
 void	test_lists()
 {
 	t_list	**test_list = malloc((sizeof(t_list) * 15) + 1);
-	
 	t_list	*head = ft_lstnew("Bananas");
 	t_list	*node0 = ft_lstnew("Oranges");
 	t_list	*node1 = ft_lstnew("Pineapples");
@@ -575,17 +587,17 @@ void	test_lists()
 	t_list	*node3 = ft_lstnew("Limes");
 	t_list	*insert_at_front = ft_lstnew("Kiwis");
 	t_list	*insert_at_end = ft_lstnew("Watermelons");
-	printf("First node content: %s\n", head->content);
-	printf("Second node content: %s\n", node0->content);
-	*test_list = head;
+	test_list = &head;
 	head->next = node0;
 	node0->next = node1;
 	node1->next = node2;
 	node2->next = node3;
 	
-	printf("lst size is now %i\n", ft_lstsize(head));
-	printf("added stuff to the list, printing...\n");
+	printf("-------------------------\n");
+	printf("testing putnbr\n");
+	printf("-------------------------\n");	
 	
+	printf("Added stuff, list size is now %i\n", ft_lstsize(head));	
 	ft_lstadd_front(test_list, insert_at_front);
 	printf("added kiwis to the front, printing list...\n");
 	test_prntlst(head);
@@ -597,9 +609,11 @@ void	test_lists()
 	printf("content of last node is %s\n", ft_lstlast(head)->content);
 	printf("printing entire list...\n");
 	test_prntlst(head);
-	printf("deleting node number 2...\n");
-	//ft_lstdelone(*(*test_list + 2), f_del_node);
-	free(test_list);
+	printf("deleting the Apples...\n");
+	ft_lstdelone(node2, f_del_node);
+	test_prntlst(head);
+	ft_lstclear(test_list, f_del_node);
+	//free(test_list);
 }
 
 
@@ -635,6 +649,6 @@ int	main(void)
 	test_ft_putstr_fd();
 	test_ft_putnbr_fd();
 	test_atoi();
-	test_lists();
+	//test_lists();
 	return(0);
 }
