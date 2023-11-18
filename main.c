@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/18 12:58:33 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/18 13:26:13 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -566,6 +566,25 @@ void f_del_node(void *content)
 	free(content);
 }
 
+void	f_iterate(void *content)
+{
+	size_t len;
+
+	len = ft_strlen((const char *)content);
+	
+	((char *)content)[len] = 'S';
+}
+
+void	*f_map(void *content)
+{
+	size_t len;
+	void	*new;
+	new = content;
+	len = ft_strlen((const char *)new);
+	((char *)new)[len] = '!';
+	return (new);
+}
+
 void	test_prntlst(t_list *node)
 {	
 	printf("\n[");
@@ -587,6 +606,7 @@ void	test_lists()
 	t_list	*node3 = ft_lstnew("Limes");
 	t_list	*insert_at_front = ft_lstnew("Kiwis");
 	t_list	*insert_at_end = ft_lstnew("Watermelons");
+	
 	test_list = &head;
 	head->next = node0;
 	node0->next = node1;
@@ -609,10 +629,18 @@ void	test_lists()
 	printf("content of last node is %s\n", ft_lstlast(head)->content);
 	printf("printing entire list...\n");
 	test_prntlst(head);
+	printf("Iterating -> changing 's' to 'S'...\n");
+	ft_lstiter(head, f_iterate);
+	test_prntlst(head);
 	printf("deleting the Apples...\n");
 	ft_lstdelone(node2, f_del_node);
 	test_prntlst(head);
+	printf("Mapping...\n");
+	ft_lstmap(head, f_map, f_del_node);
+	test_prntlst(head);
+	printf("Clearing entire list...\n");
 	ft_lstclear(test_list, f_del_node);
+	test_prntlst(head);
 	//free(test_list);
 }
 

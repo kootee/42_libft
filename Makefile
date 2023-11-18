@@ -35,8 +35,7 @@ SRCS = ft_memset.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		main.c
+		ft_putnbr_fd.c
 
 BSRCS = ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \
@@ -54,24 +53,23 @@ BOBJS = ${BSRCS:.c=.o}
 
 CFLAGS = -Wall -Wextra -Werror
 
-all:	${NAME}
+all: ${NAME}
 
 ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -c ${SRCS}
-	ar -rc ${NAME} ${OBJS}
+	ar -rc $@ $?
 
 bonus: .bonus
 
 .bonus: ${OBJS} ${BOBJS}
-	ar -r ${NAME} $?
-	touch .bonus
+	ar -rc ${NAME} $?
+	@touch .bonus
 
 clean:
 	@echo "cleaning..."
-	@rm -f ${OBJS}
+	@rm -f ${OBJS} ${BOBJS}
 
 fclean: clean
-	@echo "cleaning all files..."
 	@rm -f ${NAME} ${BOBJS}
 	@rm -f main.o main
 
@@ -79,4 +77,4 @@ re: fclean all
 
 rebonus: fclean bonus
 
-.PHONY: clean
+.PHONY: clean bonus all

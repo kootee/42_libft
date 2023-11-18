@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:01:19 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/16 17:21:52 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:13:00 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*res;
+	t_list	*new;
 	t_list	*temp;
+	void	*content;
 
-	if (lst == 0 || f == 0)
+	if (lst == 0 || f == 0 || !del)
 		return (0);
-	res = 0;
+	new = 0;
 	while (lst)
 	{
-		temp = ft_lstnew((*f)(lst->content));
+		content = f(lst->content);
+		temp = ft_lstnew(content);
 		if (!temp)
 		{
-			ft_lstclear(&res, del);
+			del(content);
+			ft_lstclear(&new, del);
 			return (0);
 		}
-		ft_lstadd_back(&res, temp);
+		ft_lstadd_back(&new, temp);
 		temp = temp->next;
 		lst = lst->next;
 	}
-	return (res);
+	return (new);
 }
