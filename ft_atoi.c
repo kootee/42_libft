@@ -6,15 +6,14 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:53:57 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/16 16:39:08 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:28:31 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	//long max return -1
 	int		i;
-	long	nbr;
+	int		nbr;
 
 	i = 1;
 	nbr = 0;
@@ -32,5 +31,5 @@ int	ft_atoi(const char *str)
 		nbr += *str - 48;
 		str++;
 	}
-	return ((int)nbr * i);
+	return (nbr * i);
 }

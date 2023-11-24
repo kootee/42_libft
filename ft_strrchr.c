@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:49:45 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/15 10:51:44 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:40:09 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	i = ft_strlen(s);
 	if ((char)c == 0)
-		return((char *)(s + ft_strlen(s)));
+		return ((char *)(s + ft_strlen(s)));
 	while (i--)
 	{
 		if (s[i] == (char)c)

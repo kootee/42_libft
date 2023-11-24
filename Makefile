@@ -2,6 +2,8 @@ NAME = libft.a
 
 CC = cc
 
+CFLAGS = -Wall -Wextra -Werror
+
 SRCS = ft_memset.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -51,18 +53,16 @@ OBJS = ${SRCS:.c=.o}
 
 BOBJS = ${BSRCS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
-
 all: ${NAME}
 
 ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -c ${SRCS}
-	ar -rc $@ $?
+	ar -rc $@ $^
 
 bonus: .bonus
 
 .bonus: ${OBJS} ${BOBJS}
-	ar -rc ${NAME} $?
+	ar -rc ${NAME} $^
 	@touch .bonus
 
 clean:
@@ -70,8 +70,7 @@ clean:
 	@rm -f ${OBJS} ${BOBJS}
 
 fclean: clean
-	@rm -f ${NAME} ${BOBJS}
-	@rm -f main.o main
+	@rm -f ${NAME} .bonus
 
 re: fclean all
 

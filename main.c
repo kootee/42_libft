@@ -6,14 +6,16 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:40:33 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/18 13:26:13 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:48:50 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Tests for libft */
 
 #include "libft.h"
+#include <stdio.h>
 #include <limits.h>
+#include <string.h>
 
 void	test_isalpha(void)
 {
@@ -257,8 +259,7 @@ void	test_strnstr(void)
 
 void	test_atoi(void)
 {
-	size_t	testsize = -1;
-	printf("-------------------------\n\n");
+	printf("-------------------------\n");
 	printf("Testing atoi\n");
 	printf("-------------------------\n");
 	printf("Should print: 123456: %d \n", ft_atoi("+123456ab567"));
@@ -274,7 +275,6 @@ void	test_atoi(void)
 	printf("Should print with too big library func: %d \n", atoi("21474836490"));
 	printf("Should print with too big: %d \n", ft_atoi("-2147483649"));
 	printf("Should print with too big library func: %d \n", atoi("-2147483649"));
-	printf("max size of size t %zu\n", testsize);
 }
 
 void	test_bzero()
@@ -302,13 +302,19 @@ void	test_calloc(void)
 	printf("-------------------------\n");
 	unsigned char *p;
 	unsigned char *v;
+	unsigned char *y;
+	size_t	test_MAX;
+
+	test_MAX = -1;
 	
 	p = ft_calloc(4, 1);
 	v = ft_calloc(10, 8);
+	y = ft_calloc(10, test_MAX);
 	printf("Calloc p is %02X ", *p);
 	printf("%02X ", *(p + 1));
 	printf("%02X ", *(p + 2));
 	printf("%02X\n", *(p + 3));
+	printf("Y returned %s\n", y);
 	int i = 0;
 	while (i <= 85)
 	{
@@ -568,11 +574,19 @@ void f_del_node(void *content)
 
 void	f_iterate(void *content)
 {
-	size_t len;
+	printf("iterating... ");
+	int		len;
+	char	*cont;
 
-	len = ft_strlen((const char *)content);
-	
-	((char *)content)[len] = 'S';
+	len = 0;
+	cont = (char *)content;
+	while (cont[len])
+	{
+		if (cont[len] == 's')
+			cont[len] = 's';
+		len++;
+	}
+	printf("done iterating...\n");
 }
 
 void	*f_map(void *content)
@@ -598,6 +612,9 @@ void	test_prntlst(t_list *node)
 
 void	test_lists()
 {
+	printf("-------------------------\n");
+	printf("testing bonus\n");
+	printf("-------------------------\n");	
 	t_list	**test_list = malloc((sizeof(t_list) * 15) + 1);
 	t_list	*head = ft_lstnew("Bananas");
 	t_list	*node0 = ft_lstnew("Oranges");
@@ -630,7 +647,7 @@ void	test_lists()
 	printf("printing entire list...\n");
 	test_prntlst(head);
 	printf("Iterating -> changing 's' to 'S'...\n");
-	ft_lstiter(head, f_iterate);
+	ft_lstiter(head, &f_iterate);
 	test_prntlst(head);
 	printf("deleting the Apples...\n");
 	ft_lstdelone(node2, f_del_node);
@@ -643,7 +660,6 @@ void	test_lists()
 	test_prntlst(head);
 	//free(test_list);
 }
-
 
 int	main(void)
 {
@@ -677,6 +693,6 @@ int	main(void)
 	test_ft_putstr_fd();
 	test_ft_putnbr_fd();
 	test_atoi();
-	//test_lists();
+	test_lists();
 	return(0);
 }

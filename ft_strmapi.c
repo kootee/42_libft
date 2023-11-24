@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:08:51 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/09 11:15:52 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:28:06 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s)
 		return (0);
+	i = 0;
 	str_len = ft_strlen(s);
 	ptr = malloc(sizeof(char) * str_len + 1);
-	i = 0;
 	if (!ptr)
 		return (0);
 	while (s[i])

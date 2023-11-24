@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:35:40 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/01 15:40:44 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:27:27 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strdup(const char *s1)
 
 	len = ft_strlen((char *)s1);
 	cpy = malloc(len + 1);
-	if (cpy == 0)
-		return (cpy);
+	if (!cpy)
+		return (0);
 	while (*s1)
 		*cpy++ = *s1++;
 	*cpy = 0;

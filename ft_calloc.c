@@ -6,7 +6,7 @@
 /*   By: ktoivola <ktoivola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:06:48 by ktoivola          #+#    #+#             */
-/*   Updated: 2023/11/15 15:56:24 by ktoivola         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:44:05 by ktoivola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 	size_t	max_size;
 
-	max_size = -1;
+	max_size = SIZE_MAX;
 	if (count * size > max_size)
 		return (0);
 	ptr = malloc(count * size);
