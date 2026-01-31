@@ -340,13 +340,13 @@ void	test_memchr(void)
 	printf("-------------------------\n");
 	char msg[] = "Helloooooooooooo";
 	char msg1[] = "Hellooyoooo23574ooomoo36o";
-	printf("memchr returns %s\n", ft_memchr(msg, 'o', 7));
-	printf("memchr returns %s\n", ft_memchr(msg, 'p', 2));
-	printf("memchr returns %s\n", ft_memchr(msg, 'w', 2));
-	printf("memchr returns %s\n", ft_memchr(msg1, 'U', 0));
-	printf("memchr returns %s\n", ft_memchr(msg1, '0', 0));
-	printf("memchr returns %s\n", ft_memchr(msg1, 'm', 185));
-	printf("memchr returns %s\n", ft_memchr(msg1, '\0', 185));
+	printf("memchr returns %p\n", ft_memchr(msg, 'o', 7));
+	printf("memchr returns %p\n", ft_memchr(msg, 'p', 2));
+	printf("memchr returns %p\n", ft_memchr(msg, 'w', 2));
+	printf("memchr returns %p\n", ft_memchr(msg1, 'U', 0));
+	printf("memchr returns %p\n", ft_memchr(msg1, '0', 0));
+	printf("memchr returns %p\n", ft_memchr(msg1, 'm', 185));
+	printf("memchr returns %p\n", ft_memchr(msg1, '\0', 185));
 }
 
 void	test_substr(void)
@@ -570,23 +570,22 @@ void	test_ft_putnbr_fd()
 void f_del_node(void *content)
 {
 	free(content);
+	content = NULL;
 }
 
 void	f_iterate(void *content)
 {
-	printf("iterating... ");
 	int		len;
 	char	*cont;
 
 	len = 0;
 	cont = (char *)content;
-	while (cont[len])
+	while (cont[len] != '\0')
 	{
 		if (cont[len] == 's')
-			cont[len] = 's';
+			cont[len] = 'y';
 		len++;
 	}
-	printf("done iterating...\n");
 }
 
 void	*f_map(void *content)
@@ -602,9 +601,9 @@ void	*f_map(void *content)
 void	test_prntlst(t_list *node)
 {	
 	printf("\n[");
-	while(node)
+	while(node && node->content)
 	{
-		printf(" %s ", node->content);
+		printf(" %s ", (char*)node->content);
 		node = node->next;
 	}
 	printf("]\n");
@@ -616,23 +615,19 @@ void	test_lists()
 	printf("testing bonus\n");
 	printf("-------------------------\n");	
 	t_list	**test_list = malloc((sizeof(t_list) * 15) + 1);
-	t_list	*head = ft_lstnew("Bananas");
-	t_list	*node0 = ft_lstnew("Oranges");
-	t_list	*node1 = ft_lstnew("Pineapples");
-	t_list	*node2 = ft_lstnew("Apples");
-	t_list	*node3 = ft_lstnew("Limes");
-	t_list	*insert_at_front = ft_lstnew("Kiwis");
-	t_list	*insert_at_end = ft_lstnew("Watermelons");
+	t_list	*head = ft_lstnew(ft_strdup("Bananas"));
+	t_list	*node0 = ft_lstnew(ft_strdup("Oranges"));
+	t_list	*node1 = ft_lstnew(ft_strdup("Pineapples"));
+	t_list	*node2 = ft_lstnew(ft_strdup("Apples"));
+	t_list	*node3 = ft_lstnew(ft_strdup("Limes"));
+	t_list	*insert_at_front = ft_lstnew(ft_strdup("Kiwis"));
+	t_list	*insert_at_end = ft_lstnew(ft_strdup("Watermelons"));
 	
 	test_list = &head;
 	head->next = node0;
 	node0->next = node1;
 	node1->next = node2;
 	node2->next = node3;
-	
-	printf("-------------------------\n");
-	printf("testing putnbr\n");
-	printf("-------------------------\n");	
 	
 	printf("Added stuff, list size is now %i\n", ft_lstsize(head));	
 	ft_lstadd_front(test_list, insert_at_front);
@@ -643,14 +638,15 @@ void	test_lists()
 	test_prntlst(head);
 
 	printf("lst size is now %i\n", ft_lstsize(head));
-	printf("content of last node is %s\n", ft_lstlast(head)->content);
+	printf("content of last node is %p\n", ft_lstlast(head)->content);
 	printf("printing entire list...\n");
 	test_prntlst(head);
-	printf("Iterating -> changing 's' to 'S'...\n");
+	printf("Iterating -> changing 's' to 'y'...\n");
 	ft_lstiter(head, &f_iterate);
 	test_prntlst(head);
 	printf("deleting the Apples...\n");
 	ft_lstdelone(node2, f_del_node);
+	node1->next = node3;
 	test_prntlst(head);
 	printf("Mapping...\n");
 	ft_lstmap(head, f_map, f_del_node);
@@ -658,7 +654,6 @@ void	test_lists()
 	printf("Clearing entire list...\n");
 	ft_lstclear(test_list, f_del_node);
 	test_prntlst(head);
-	//free(test_list);
 }
 
 int	main(void)
